@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="beutyDataSet" targetNamespace="http://tempuri.org/beutyDataSet.xsd" xmlns:mstns="http://tempuri.org/beutyDataSet.xsd" xmlns="http://tempuri.org/beutyDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="beutyConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="beutyConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.RegistarVentas.Properties.Settings.GlobalReference.Default.beutyConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_descuentoTableAdapter" GeneratorDataComponentClassName="View_descuentoTableAdapter" Name="View_descuento" UserDataComponentName="View_descuentoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="beutyConnectionString (Settings)" DbObjectName="beuty.dbo.View_descuento" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idventa, fecha, descuento FROM dbo.View_descuento</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idventa" DataSetColumn="idventa" />
+              <Mapping SourceColumn="fecha" DataSetColumn="fecha" />
+              <Mapping SourceColumn="descuento" DataSetColumn="descuento" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="beutyDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="beutyDataSet" msprop:Generator_UserDSName="beutyDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_descuento" msprop:Generator_TableClassName="View_descuentoDataTable" msprop:Generator_TableVarName="tableView_descuento" msprop:Generator_TablePropName="View_descuento" msprop:Generator_RowDeletingName="View_descuentoRowDeleting" msprop:Generator_RowChangingName="View_descuentoRowChanging" msprop:Generator_RowEvHandlerName="View_descuentoRowChangeEventHandler" msprop:Generator_RowDeletedName="View_descuentoRowDeleted" msprop:Generator_UserTableName="View_descuento" msprop:Generator_RowChangedName="View_descuentoRowChanged" msprop:Generator_RowEvArgName="View_descuentoRowChangeEvent" msprop:Generator_RowClassName="View_descuentoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idventa" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidventa" msprop:Generator_ColumnPropNameInRow="idventa" msprop:Generator_ColumnPropNameInTable="idventaColumn" msprop:Generator_UserColumnName="idventa" type="xs:int" />
+              <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="descuento" msprop:Generator_ColumnVarNameInTable="columndescuento" msprop:Generator_ColumnPropNameInRow="descuento" msprop:Generator_ColumnPropNameInTable="descuentoColumn" msprop:Generator_UserColumnName="descuento" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_descuento" />
+      <xs:field xpath="mstns:idventa" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

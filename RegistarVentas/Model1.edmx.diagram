@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8b99edbb2cc648ac83090cac290831de" Name="Diagram1" ZoomLevel="68">
+        <EntityTypeShape EntityType="beutyModel.categoria" Width="1.5" PointX="3.75" PointY="11.75" />
+        <EntityTypeShape EntityType="beutyModel.Cierre_caja" Width="1.5" PointX="3" PointY="25.5" />
+        <EntityTypeShape EntityType="beutyModel.Cliente" Width="1.5" PointX="0.75" PointY="5.125" />
+        <EntityTypeShape EntityType="beutyModel.comprobantes" Width="1.5" PointX="7.75" PointY="1.75" />
+        <EntityTypeShape EntityType="beutyModel.configuracion" Width="1.5" PointX="1.5" PointY="18.25" />
+        <EntityTypeShape EntityType="beutyModel.cotizacion" Width="1.5" PointX="10.75" PointY="5.5" />
+        <EntityTypeShape EntityType="beutyModel.CXC" Width="1.5" PointX="5.25" PointY="5.5" />
+        <EntityTypeShape EntityType="beutyModel.dbCotizacion" Width="1.5" PointX="10.75" PointY="10.5" />
+        <EntityTypeShape EntityType="beutyModel.detalleVenta" Width="1.5" PointX="8.25" PointY="5.375" />
+        <EntityTypeShape EntityType="beutyModel.empleado" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="beutyModel.gasto" Width="1.5" PointX="3" PointY="28.75" />
+        <EntityTypeShape EntityType="beutyModel.Inventario" Width="1.5" PointX="8.25" PointY="12.5" />
+        <EntityTypeShape EntityType="beutyModel.login" Width="1.5" PointX="0.75" PointY="11.125" />
+        <EntityTypeShape EntityType="beutyModel.Metodo_de_Pago" Width="1.5" PointX="0.75" PointY="2.5" />
+        <EntityTypeShape EntityType="beutyModel.pagos" Width="1.5" PointX="3" PointY="22.75" />
+        <EntityTypeShape EntityType="beutyModel.registro_comprobantes" Width="1.5" PointX="10" PointY="2" />
+        <EntityTypeShape EntityType="beutyModel.reparacion" Width="1.5" PointX="5.25" PointY="1.5" />
+        <EntityTypeShape EntityType="beutyModel.suplidor" Width="1.5" PointX="3.75" PointY="14.125" />
+        <EntityTypeShape EntityType="beutyModel.taller" Width="1.5" PointX="12.75" PointY="1.5" />
+        <EntityTypeShape EntityType="beutyModel.tipo_operacion" Width="1.5" PointX="6" PointY="9" />
+        <EntityTypeShape EntityType="beutyModel.tipoUsuario" Width="1.5" PointX="1.5" PointY="15.875" />
+        <EntityTypeShape EntityType="beutyModel.venta" Width="1.5" PointX="3" PointY="3.75" />
+        <EntityTypeShape EntityType="beutyModel.REPORTE_CXC" Width="1.5" PointX="12.75" PointY="5.5" />
+        <EntityTypeShape EntityType="beutyModel.View_cotizacion" Width="1.5" PointX="12.75" PointY="9.5" />
+        <EntityTypeShape EntityType="beutyModel.View_Credito" Width="1.5" PointX="14.75" PointY="1.5" />
+        <EntityTypeShape EntityType="beutyModel.View_cxc" Width="1.5" PointX="14.75" PointY="4.5" />
+        <EntityTypeShape EntityType="beutyModel.View_descuento" Width="1.5" PointX="14.75" PointY="8.5" />
+        <EntityTypeShape EntityType="beutyModel.View_factura" Width="1.5" PointX="14.75" PointY="11.5" />
+        <EntityTypeShape EntityType="beutyModel.View_ganancias" Width="1.5" PointX="8.75" PointY="16.5" />
+        <EntityTypeShape EntityType="beutyModel.View_inventario" Width="1.5" PointX="10.75" PointY="16.5" />
+        <EntityTypeShape EntityType="beutyModel.View_productos" Width="1.5" PointX="16.75" PointY="1.5" />
+        <EntityTypeShape EntityType="beutyModel.View_reporte_inventario" Width="1.5" PointX="3.75" PointY="17.5" />
+        <EntityTypeShape EntityType="beutyModel.View_stock" Width="1.5" PointX="16.75" PointY="5.5" />
+        <AssociationConnector Association="beutyModel.FK_Cierre_caja_login" />
+        <AssociationConnector Association="beutyModel.FK_CXC_Cliente1" />
+        <AssociationConnector Association="beutyModel.FK_venta_Cliente" />
+        <AssociationConnector Association="beutyModel.FK_registro_comprobantes_comprobantes" />
+        <AssociationConnector Association="beutyModel.FK_login_configuracion" />
+        <AssociationConnector Association="beutyModel.FK_CXC_venta" />
+        <AssociationConnector Association="beutyModel.FK_detalleVenta_venta" />
+        <AssociationConnector Association="beutyModel.FK_reparacion_empleado" />
+        <AssociationConnector Association="beutyModel.FK_gasto_login" />
+        <AssociationConnector Association="beutyModel.FK_Inventario_tipo_operacion" />
+        <AssociationConnector Association="beutyModel.FK_login_tipoUsuario" />
+        <AssociationConnector Association="beutyModel.FK_pagos_login" />
+        <AssociationConnector Association="beutyModel.FK_venta_login" />
+        <AssociationConnector Association="beutyModel.FK_venta_Metodo_de_Pago" />
+        <AssociationConnector Association="beutyModel.FK_reparacion_venta" />
+        <EntityTypeShape EntityType="beutyModel.Producto" Width="1.5" PointX="6" PointY="11.75" />
+        <AssociationConnector Association="beutyModel.FK_Producto_categoria" />
+        <AssociationConnector Association="beutyModel.FK_detalleVenta_Producto" />
+        <AssociationConnector Association="beutyModel.FK_Inventario_Producto" />
+        <AssociationConnector Association="beutyModel.FK_Producto_suplidor" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

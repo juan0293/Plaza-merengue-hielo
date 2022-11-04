@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="sdeptech_softmarketModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="acepta_terminos">
+          <Key>
+            <PropertyRef Name="idtermino" />
+          </Key>
+          <Property Name="idtermino" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="detalle" Type="text" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cliente_empresa">
+          <Key>
+            <PropertyRef Name="idcliente" />
+          </Key>
+          <Property Name="idcliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="empresa" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="correo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="sistema" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ingreso" Type="date" Nullable="false" />
+          <Property Name="rnc" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="licencia">
+          <Key>
+            <PropertyRef Name="idlicencia" />
+          </Key>
+          <Property Name="idlicencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mensaje">
+          <Key>
+            <PropertyRef Name="idmensaje" />
+          </Key>
+          <Property Name="idmensaje" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="asunto" Type="text" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="idclient" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="serial">
+          <Key>
+            <PropertyRef Name="idserial" />
+          </Key>
+          <Property Name="idserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="serial" Type="text" Nullable="false" />
+        </EntityType>
+        <Association Name="mensaje_ibfk_1">
+          <End Role="Cliente_empresa" Type="Self.Cliente_empresa" Multiplicity="1" />
+          <End Role="mensaje" Type="Self.mensaje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente_empresa">
+              <PropertyRef Name="idcliente" />
+            </Principal>
+            <Dependent Role="mensaje">
+              <PropertyRef Name="idclient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="sdeptech_softmarketModelStoreContainer">
+          <EntitySet Name="acepta_terminos" EntityType="Self.acepta_terminos" Schema="sdeptech_softmarket" store:Type="Tables" />
+          <EntitySet Name="Cliente_empresa" EntityType="Self.Cliente_empresa" Schema="sdeptech_softmarket" store:Type="Tables" />
+          <EntitySet Name="licencia" EntityType="Self.licencia" Schema="sdeptech_softmarket" store:Type="Tables" />
+          <EntitySet Name="mensaje" EntityType="Self.mensaje" Schema="sdeptech_softmarket" store:Type="Tables" />
+          <EntitySet Name="serial" EntityType="Self.serial" Schema="sdeptech_softmarket" store:Type="Tables" />
+          <AssociationSet Name="mensaje_ibfk_1" Association="Self.mensaje_ibfk_1">
+            <End Role="Cliente_empresa" EntitySet="Cliente_empresa" />
+            <End Role="mensaje" EntitySet="mensaje" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="sdeptech_softmarketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cliente_empresa">
+          <Key>
+            <PropertyRef Name="idcliente" />
+          </Key>
+          <Property Name="idcliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="empresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sistema" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ingreso" Type="DateTime" Nullable="false" />
+          <Property Name="rnc" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="mensajes" Relationship="Self.mensaje_ibfk_1" FromRole="Cliente_empresa" ToRole="mensaje" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="mensaje">
+          <Key>
+            <PropertyRef Name="idmensaje" />
+          </Key>
+          <Property Name="idmensaje" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="asunto" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idclient" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cliente_empresa" Relationship="Self.mensaje_ibfk_1" FromRole="mensaje" ToRole="Cliente_empresa" />
+        </EntityType>
+        <Association Name="mensaje_ibfk_1">
+          <End Role="Cliente_empresa" Type="Self.Cliente_empresa" Multiplicity="1" />
+          <End Role="mensaje" Type="Self.mensaje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente_empresa">
+              <PropertyRef Name="idcliente" />
+            </Principal>
+            <Dependent Role="mensaje">
+              <PropertyRef Name="idclient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="sdeptech_softmarketEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cliente_empresa" EntityType="Self.Cliente_empresa" />
+          <EntitySet Name="mensajes" EntityType="Self.mensaje" />
+          <AssociationSet Name="mensaje_ibfk_1" Association="Self.mensaje_ibfk_1">
+            <End Role="Cliente_empresa" EntitySet="Cliente_empresa" />
+            <End Role="mensaje" EntitySet="mensajes" />
+          </AssociationSet>
+          <EntitySet Name="acepta_terminos" EntityType="sdeptech_softmarketModel.acepta_terminos" />
+          <EntitySet Name="licencias" EntityType="sdeptech_softmarketModel.licencia" />
+          <EntitySet Name="serials" EntityType="sdeptech_softmarketModel.serial" />
+        </EntityContainer>
+        <EntityType Name="acepta_terminos">
+          <Key>
+            <PropertyRef Name="idtermino" />
+          </Key>
+          <Property Name="idtermino" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="detalle" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="licencia">
+          <Key>
+            <PropertyRef Name="idlicencia" />
+          </Key>
+          <Property Name="idlicencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="serial">
+          <Key>
+            <PropertyRef Name="idserial" />
+          </Key>
+          <Property Name="idserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="serial1" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="sdeptech_softmarketModelStoreContainer" CdmEntityContainer="sdeptech_softmarketEntities1">
+          <EntitySetMapping Name="Cliente_empresa">
+            <EntityTypeMapping TypeName="sdeptech_softmarketModel.Cliente_empresa">
+              <MappingFragment StoreEntitySet="Cliente_empresa">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="idcliente" ColumnName="idcliente" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="empresa" ColumnName="empresa" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="sistema" ColumnName="sistema" />
+                <ScalarProperty Name="ingreso" ColumnName="ingreso" />
+                <ScalarProperty Name="rnc" ColumnName="rnc" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mensajes">
+            <EntityTypeMapping TypeName="sdeptech_softmarketModel.mensaje">
+              <MappingFragment StoreEntitySet="mensaje">
+                <ScalarProperty Name="idmensaje" ColumnName="idmensaje" />
+                <ScalarProperty Name="asunto" ColumnName="asunto" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="idclient" ColumnName="idclient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="acepta_terminos">
+            <EntityTypeMapping TypeName="sdeptech_softmarketModel.acepta_terminos">
+              <MappingFragment StoreEntitySet="acepta_terminos">
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="idtermino" ColumnName="idtermino" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="licencias">
+            <EntityTypeMapping TypeName="sdeptech_softmarketModel.licencia">
+              <MappingFragment StoreEntitySet="licencia">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="idlicencia" ColumnName="idlicencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="serials">
+            <EntityTypeMapping TypeName="sdeptech_softmarketModel.serial">
+              <MappingFragment StoreEntitySet="serial">
+                <ScalarProperty Name="serial1" ColumnName="serial" />
+                <ScalarProperty Name="idserial" ColumnName="idserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,2388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="beutyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="categoria">
+          <Key>
+            <PropertyRef Name="idcategoria" />
+          </Key>
+          <Property Name="idcategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Cierre_caja">
+          <Key>
+            <PropertyRef Name="ini_caja" />
+          </Key>
+          <Property Name="ini_caja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_cierre" Type="int" Nullable="false" />
+          <Property Name="credito" Type="float" />
+          <Property Name="tarjeta" Type="float" />
+          <Property Name="efectivo" Type="float" Nullable="false" />
+          <Property Name="usuario" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="ID_Cliente" />
+          </Key>
+          <Property Name="ID_Cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dirreccion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" />
+          <Property Name="Lugar_De_trabajo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Cedula" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Limite_Credito" Type="float" Nullable="false" />
+          <Property Name="estatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="comprobantes">
+          <Key>
+            <PropertyRef Name="idomprobantes" />
+          </Key>
+          <Property Name="idomprobantes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="5" />
+          <Property Name="estado" Type="bit" />
+          <Property Name="cantidad" Type="int" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="secuencia" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="secuencia_finalizar" Type="varchar" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="configuracion">
+          <Key>
+            <PropertyRef Name="idcconfig" />
+          </Key>
+          <Property Name="idcconfig" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" />
+          <Property Name="rnc" Type="varchar" MaxLength="12" />
+          <Property Name="telefono" Type="varchar" MaxLength="12" />
+          <Property Name="ubicacion" Type="varchar" MaxLength="50" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="empre" Type="varchar" MaxLength="50" />
+          <Property Name="logo" Type="image" />
+          <Property Name="redes" Type="varchar" MaxLength="50" />
+          <Property Name="estatus" Type="bit" />
+          <Property Name="p" Type="float" />
+          <Property Name="correo_empresarial" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="cotizacion">
+          <Key>
+            <PropertyRef Name="idcotizacion" />
+          </Key>
+          <Property Name="idcotizacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" />
+          <Property Name="cantidad" Type="float" />
+          <Property Name="subtotal" Type="float" />
+          <Property Name="total" Type="float" />
+          <Property Name="estado" Type="bit" />
+          <Property Name="cliente" Type="varchar" MaxLength="100" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" />
+          <Property Name="telefono" Type="varchar" MaxLength="12" />
+          <Property Name="codigo" Type="varchar" MaxLength="50" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="totalCotizacion" Type="float" />
+          <Property Name="idcotiza" Type="int" />
+          <Property Name="idprd" Type="int" />
+          <Property Name="itbis" Type="float" />
+          <Property Name="tipodocumento" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CXC">
+          <Key>
+            <PropertyRef Name="ID_CXC" />
+          </Key>
+          <Property Name="ID_CXC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="ID_Cliente" Type="int" Nullable="false" />
+          <Property Name="Monto" Type="float" Nullable="false" />
+          <Property Name="usuario" Type="int" />
+          <Property Name="venta" Type="int" />
+        </EntityType>
+        <EntityType Name="dbCotizacion">
+          <Key>
+            <PropertyRef Name="idcotiza" />
+          </Key>
+          <Property Name="idcotiza" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cliente" Type="varchar" MaxLength="100" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" />
+          <Property Name="telefono" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="total" Type="float" />
+          <Property Name="estado" Type="bit" />
+          <Property Name="rnc" Type="varchar" MaxLength="11" />
+          <Property Name="totalItbis" Type="float" />
+        </EntityType>
+        <EntityType Name="detalleVenta">
+          <Key>
+            <PropertyRef Name="indtll" />
+          </Key>
+          <Property Name="indtll" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ventaid" Type="int" />
+          <Property Name="idproducto" Type="int" />
+          <Property Name="cantidad" Type="float" />
+          <Property Name="precio" Type="float" />
+          <Property Name="monto" Type="float" />
+          <Property Name="itbis" Type="float" />
+        </EntityType>
+        <EntityType Name="empleado">
+          <Key>
+            <PropertyRef Name="idempleado" />
+          </Key>
+          <Property Name="idempleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="apellido" Type="nvarchar" MaxLength="50" />
+          <Property Name="comision" Type="float" />
+        </EntityType>
+        <EntityType Name="gasto">
+          <Key>
+            <PropertyRef Name="idgasto" />
+          </Key>
+          <Property Name="idgasto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="detalle" Type="varchar" MaxLength="250" />
+          <Property Name="monto" Type="float" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="estado" Type="bit" />
+          <Property Name="iduser" Type="int" />
+        </EntityType>
+        <EntityType Name="Inventario">
+          <Key>
+            <PropertyRef Name="ID_Inventario" />
+          </Key>
+          <Property Name="ID_Inventario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Producto_Id" Type="int" Nullable="false" />
+          <Property Name="entrada" Type="float" Nullable="false" />
+          <Property Name="Fecha_Ingreso" Type="date" Nullable="false" />
+          <Property Name="tipo_operacion" Type="int" />
+          <Property Name="salida" Type="float" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="iduser" />
+          </Key>
+          <Property Name="iduser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="usuario" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="pass" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tipo" Type="int" Nullable="false" />
+          <Property Name="estatus" Type="bit" />
+          <Property Name="empresa" Type="int" />
+        </EntityType>
+        <EntityType Name="Metodo_de_Pago">
+          <Key>
+            <PropertyRef Name="ID_Metodo" />
+          </Key>
+          <Property Name="ID_Metodo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="pagos">
+          <Key>
+            <PropertyRef Name="idpago" />
+          </Key>
+          <Property Name="idpago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idusuario" Type="int" />
+          <Property Name="monto" Type="float" />
+          <Property Name="fecha" Type="date" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Codigo_ID" />
+          </Key>
+          <Property Name="Codigo_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="30" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Categoria" Type="int" />
+          <Property Name="Suplidor" Type="int" />
+          <Property Name="Descripcion_Producto" Type="varchar" MaxLength="100" />
+          <Property Name="estatus" Type="bit" />
+          <Property Name="precio_neto" Type="float" />
+          <Property Name="precio_salida" Type="float" />
+          <Property Name="impuesto" Type="float" />
+          <Property Name="fecha_entrada" Type="date" />
+          <Property Name="itbis" Type="bit" />
+        </EntityType>
+        <EntityType Name="registro_comprobantes">
+          <Key>
+            <PropertyRef Name="id_registro" />
+          </Key>
+          <Property Name="id_registro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idcomp" Type="int" Nullable="false" />
+          <Property Name="secuencia" Type="varchar" MaxLength="8" />
+          <Property Name="fecha" Type="date" />
+        </EntityType>
+        <EntityType Name="reparacion">
+          <Key>
+            <PropertyRef Name="idtrabajo" />
+          </Key>
+          <Property Name="idtrabajo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="empledoid" Type="int" />
+          <Property Name="ventaid" Type="int" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="monto" Type="float" />
+        </EntityType>
+        <EntityType Name="suplidor">
+          <Key>
+            <PropertyRef Name="idsuplidor" />
+          </Key>
+          <Property Name="idsuplidor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="taller">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="50" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" />
+          <Property Name="detalle" Type="varchar" MaxLength="50" />
+          <Property Name="cantidad" Type="float" />
+          <Property Name="subtotal" Type="float" />
+          <Property Name="total" Type="float" />
+          <Property Name="referencia" Type="varchar" MaxLength="300" />
+          <Property Name="mecanico" Type="varchar" MaxLength="50" />
+          <Property Name="idmecanico" Type="int" />
+          <Property Name="estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="tipo_operacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tipoUsuario">
+          <Key>
+            <PropertyRef Name="idtipo" />
+          </Key>
+          <Property Name="idtipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="venta">
+          <Key>
+            <PropertyRef Name="idventa" />
+          </Key>
+          <Property Name="idventa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idcliente" Type="int" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="usuario" Type="int" />
+          <Property Name="monto" Type="float" />
+          <Property Name="metodo" Type="int" />
+          <Property Name="efectivo" Type="float" />
+          <Property Name="tarjeta" Type="float" />
+          <Property Name="descuento" Type="float" />
+          <Property Name="credito" Type="float" />
+          <Property Name="subtotal" Type="float" />
+          <Property Name="itebis" Type="float" />
+          <Property Name="devuelta" Type="float" />
+          <Property Name="estado" Type="varchar" MaxLength="50" />
+          <Property Name="vendedor" Type="varchar" MaxLength="50" />
+          <Property Name="ncf" Type="varchar" MaxLength="11" />
+          <Property Name="rnc" Type="varchar" MaxLength="100" />
+          <Property Name="cliente" Type="varchar" MaxLength="100" />
+          <Property Name="tipodocumento" Type="varchar" MaxLength="30" />
+          <Property Name="totalItbis" Type="float" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'beuty.dbo.REPORTE_CXC' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="REPORTE_CXC">
+          <Key>
+            <PropertyRef Name="ID_Cliente" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Apellidos" />
+            <PropertyRef Name="Telefono" />
+            <PropertyRef Name="Lugar_De_trabajo" />
+            <PropertyRef Name="Cedula" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Monto" />
+          </Key>
+          <Property Name="ID_Cliente" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Lugar_De_trabajo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Cedula" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="Monto" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'beuty.dbo.View_cotizacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_cotizacion">
+          <Key>
+            <PropertyRef Name="idcotiza" />
+            <PropertyRef Name="telefono" />
+            <PropertyRef Name="idcotizacion" />
+          </Key>
+          <Property Name="idcotiza" Type="int" Nullable="false" />
+          <Property Name="cliente" Type="varchar" MaxLength="100" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" />
+          <Property Name="telefono" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="total" Type="float" />
+          <Property Name="estado" Type="bit" />
+          <Property Name="rnc" Type="varchar" MaxLength="11" />
+          <Property Name="totalItbis" Type="float" />
+          <Property Name="idcotizacion" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" />
+          <Property Name="cantidad" Type="float" />
+          <Property Name="subtotal" Type="float" />
+          <Property Name="totalProducto" Type="float" />
+          <Property Name="Expr1" Type="varchar" MaxLength="100" />
+          <Property Name="Expr2" Type="varchar" MaxLength="100" />
+          <Property Name="Expr3" Type="varchar" MaxLength="12" />
+          <Property Name="codigo" Type="varchar" MaxLength="50" />
+          <Property Name="Expr4" Type="date" />
+          <Property Name="totalCotizacion" Type="float" />
+          <Property Name="Expr5" Type="int" />
+          <Property Name="idprd" Type="int" />
+          <Property Name="itbis" Type="float" />
+          <Property Name="tipodocumento" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'beuty.dbo.View_Credito' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_Credito">
+          <Key>
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Apellidos" />
+            <PropertyRef Name="ID_Cliente" />
+          </Key>
+          <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_Cliente" Type="int" Nullable="false" />
+          <Property Name="total" Type="float" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'beuty.dbo.View_cxc' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_cxc">
+          <Key>
+            <PropertyRef Name="ID_Cliente" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="ID_CXC" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Monto" />
+            <PropertyRef Name="Cedula" />
+            <PropertyRef Name="Apellidos" />
+          </Key>
+          <Property Name="ID_Cliente" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ID_CXC" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="Monto" Type="float" Nullable="false" />
+          <Property Name="Cedula" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'beuty.dbo.View_descuento' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_descuento">
+          <Key>
+            <PropertyRef Name="idventa" />
+          </Key>
+          <Property Name="idventa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="descuento" Type="float" />
+          <Property Name="estado" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'beuty.dbo.View_factura' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_factura">
+          <Key>
+            <PropertyRef Name="Codigo_ID" />
+            <PropertyRef Name="ID_Cliente" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="ID_Metodo" />
+            <PropertyRef Name="iduser" />
+            <PropertyRef Name="usuario" />
+            <PropertyRef Name="idventa" />
+            <PropertyRef Name="indtll" />
+          </Key>
+          <Property Name="Codigo_ID" Type="int" Nullable="false" />
+          <Property Name="Descripcion_Producto" Type="varchar" MaxLength="30" />
+          <Property Name="ID_Cliente" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ID_Metodo" Type="int" Nullable="false" />
+          <Property Name="metodo" Type="varchar" MaxLength="30" />
+          <Property Name="iduser" Type="int" Nullable="false" />
+          <Property Name="usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idventa" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="monto" Type="float" />
+          <Property Name="efectivo" Type="float" />
+          <Property Name="tarjeta" Type="float" />
+          <Property Name="descuento" Type="float" />
+          <Property Name="credito" Type="float" />
+          <Property Name="indtll" Type="int" Nullable="false" />
+          <Property Name="precio" Type="float" />
+          <Property Name="subtotal" Type="float" />
+          <Property Name="cantidad" Type="float" />
+          <Property Name="subtotal1" Type="float" />
+          <Property Name="itebis" Type="float" />
+          <Property Name="devuelta" Type="float" />
+          <Property Name="ncf" Type="varchar" MaxLength="11" />
+          <Property Name="rnc" Type="varchar" MaxLength="100" />
+          <Property Name="cliente" Type="varchar" MaxLength="100" />
+          <Property Name="tipodocumento" Type="varchar" MaxLength="30" />
+          <Property Name="totalItbis" Type="float" />
+          <Property Name="itbis" Type="float" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'beuty.dbo.View_ganancias' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_ganancias">
+          <Key>
+            <PropertyRef Name="Codigo_ID" />
+            <PropertyRef Name="indtll" />
+            <PropertyRef Name="idventa" />
+          </Key>
+          <Property Name="codigo" Type="varchar" MaxLength="30" />
+          <Property Name="Nombre" Type="varchar" MaxLength="20" />
+          <Property Name="Codigo_ID" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="float" />
+          <Property Name="precio_salida" Type="float" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="precio_neto" Type="float" />
+          <Property Name="indtll" Type="int" Nullable="false" />
+          <Property Name="Ganancia" Type="float" />
+          <Property Name="idventa" Type="int" Nullable="false" />
+          <Property Name="total_1" Type="float" />
+          <Property Name="total_g" Type="float" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'beuty.dbo.View_inventario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_inventario">
+          <Key>
+            <PropertyRef Name="Codigo_ID" />
+            <PropertyRef Name="idsuplidor" />
+            <PropertyRef Name="idcategoria" />
+          </Key>
+          <Property Name="Codigo_ID" Type="int" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="30" />
+          <Property Name="Nombre" Type="varchar" MaxLength="20" />
+          <Property Name="Categoria" Type="int" />
+          <Property Name="idsuplidor" Type="int" Nullable="false" />
+          <Property Name="Expr1" Type="varchar" MaxLength="30" />
+          <Property Name="Descripcion_Producto" Type="varchar" MaxLength="30" />
+          <Property Name="estatus" Type="bit" />
+          <Property Name="precio_neto" Type="float" />
+          <Property Name="precio_salida" Type="float" />
+          <Property Name="idcategoria" Type="int" Nullable="false" />
+          <Property Name="Expr2" Type="varchar" MaxLength="30" />
+          <Property Name="itbis" Type="bit" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'beuty.dbo.View_productos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_productos">
+          <Key>
+            <PropertyRef Name="Codigo_ID" />
+            <PropertyRef Name="Producto_Id" />
+          </Key>
+          <Property Name="Codigo_ID" Type="int" Nullable="false" />
+          <Property Name="Producto_Id" Type="int" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="30" />
+          <Property Name="Nombre" Type="varchar" MaxLength="20" />
+          <Property Name="entredas" Type="float" />
+          <Property Name="salidas" Type="float" />
+          <Property Name="Cantidad" Type="float" />
+          <Property Name="precio_salida" Type="float" />
+          <Property Name="estatus" Type="bit" />
+          <Property Name="Categoria" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'beuty.dbo.View_reporte_inventario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_reporte_inventario">
+          <Key>
+            <PropertyRef Name="Producto_Id" />
+          </Key>
+          <Property Name="Producto_Id" Type="int" Nullable="false" />
+          <Property Name="entradas" Type="float" />
+          <Property Name="salidas" Type="float" />
+          <Property Name="Nombre" Type="varchar" MaxLength="20" />
+          <Property Name="Descripcion_Producto" Type="varchar" MaxLength="30" />
+          <Property Name="precio_neto" Type="float" />
+          <Property Name="precio_salida" Type="float" />
+          <Property Name="estatus" Type="bit" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'beuty.dbo.View_stock' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_stock">
+          <Key>
+            <PropertyRef Name="Producto_Id" />
+          </Key>
+          <Property Name="Producto_Id" Type="int" Nullable="false" />
+          <Property Name="existencia" Type="float" />
+        </EntityType>
+        <Association Name="FK_Cierre_caja_login">
+          <End Role="login" Type="Self.login" Multiplicity="1" />
+          <End Role="Cierre_caja" Type="Self.Cierre_caja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="iduser" />
+            </Principal>
+            <Dependent Role="Cierre_caja">
+              <PropertyRef Name="usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CXC_Cliente1">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="CXC" Type="Self.CXC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="ID_Cliente" />
+            </Principal>
+            <Dependent Role="CXC">
+              <PropertyRef Name="ID_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CXC_venta">
+          <End Role="venta" Type="Self.venta" Multiplicity="0..1" />
+          <End Role="CXC" Type="Self.CXC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="venta">
+              <PropertyRef Name="idventa" />
+            </Principal>
+            <Dependent Role="CXC">
+              <PropertyRef Name="venta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalleVenta_Producto">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+          <End Role="detalleVenta" Type="Self.detalleVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Codigo_ID" />
+            </Principal>
+            <Dependent Role="detalleVenta">
+              <PropertyRef Name="idproducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalleVenta_venta">
+          <End Role="venta" Type="Self.venta" Multiplicity="0..1" />
+          <End Role="detalleVenta" Type="Self.detalleVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="venta">
+              <PropertyRef Name="idventa" />
+            </Principal>
+            <Dependent Role="detalleVenta">
+              <PropertyRef Name="ventaid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gasto_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="gasto" Type="Self.gasto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="iduser" />
+            </Principal>
+            <Dependent Role="gasto">
+              <PropertyRef Name="iduser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventario_Producto">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Inventario" Type="Self.Inventario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Codigo_ID" />
+            </Principal>
+            <Dependent Role="Inventario">
+              <PropertyRef Name="Producto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventario_tipo_operacion">
+          <End Role="tipo_operacion" Type="Self.tipo_operacion" Multiplicity="0..1" />
+          <End Role="Inventario" Type="Self.Inventario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_operacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Inventario">
+              <PropertyRef Name="tipo_operacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_login_configuracion">
+          <End Role="configuracion" Type="Self.configuracion" Multiplicity="0..1" />
+          <End Role="login" Type="Self.login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="configuracion">
+              <PropertyRef Name="idcconfig" />
+            </Principal>
+            <Dependent Role="login">
+              <PropertyRef Name="empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_login_tipoUsuario">
+          <End Role="tipoUsuario" Type="Self.tipoUsuario" Multiplicity="1" />
+          <End Role="login" Type="Self.login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoUsuario">
+              <PropertyRef Name="idtipo" />
+            </Principal>
+            <Dependent Role="login">
+              <PropertyRef Name="tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pagos_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="pagos" Type="Self.pagos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="iduser" />
+            </Principal>
+            <Dependent Role="pagos">
+              <PropertyRef Name="idusuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_categoria">
+          <End Role="categoria" Type="Self.categoria" Multiplicity="0..1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria">
+              <PropertyRef Name="idcategoria" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_suplidor">
+          <End Role="suplidor" Type="Self.suplidor" Multiplicity="0..1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="suplidor">
+              <PropertyRef Name="idsuplidor" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Suplidor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_registro_comprobantes_comprobantes">
+          <End Role="comprobantes" Type="Self.comprobantes" Multiplicity="1" />
+          <End Role="registro_comprobantes" Type="Self.registro_comprobantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comprobantes">
+              <PropertyRef Name="idomprobantes" />
+            </Principal>
+            <Dependent Role="registro_comprobantes">
+              <PropertyRef Name="idcomp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_reparacion_empleado">
+          <End Role="empleado" Type="Self.empleado" Multiplicity="0..1" />
+          <End Role="reparacion" Type="Self.reparacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empleado">
+              <PropertyRef Name="idempleado" />
+            </Principal>
+            <Dependent Role="reparacion">
+              <PropertyRef Name="empledoid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_reparacion_venta">
+          <End Role="venta" Type="Self.venta" Multiplicity="0..1" />
+          <End Role="reparacion" Type="Self.reparacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="venta">
+              <PropertyRef Name="idventa" />
+            </Principal>
+            <Dependent Role="reparacion">
+              <PropertyRef Name="ventaid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_venta_Cliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="venta" Type="Self.venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="ID_Cliente" />
+            </Principal>
+            <Dependent Role="venta">
+              <PropertyRef Name="idcliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_venta_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="venta" Type="Self.venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="iduser" />
+            </Principal>
+            <Dependent Role="venta">
+              <PropertyRef Name="usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_venta_Metodo_de_Pago">
+          <End Role="Metodo_de_Pago" Type="Self.Metodo_de_Pago" Multiplicity="0..1" />
+          <End Role="venta" Type="Self.venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Metodo_de_Pago">
+              <PropertyRef Name="ID_Metodo" />
+            </Principal>
+            <Dependent Role="venta">
+              <PropertyRef Name="metodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="beutyModelStoreContainer">
+          <EntitySet Name="categoria" EntityType="Self.categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cierre_caja" EntityType="Self.Cierre_caja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="comprobantes" EntityType="Self.comprobantes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="configuracion" EntityType="Self.configuracion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cotizacion" EntityType="Self.cotizacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CXC" EntityType="Self.CXC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbCotizacion" EntityType="Self.dbCotizacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="detalleVenta" EntityType="Self.detalleVenta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="empleado" EntityType="Self.empleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gasto" EntityType="Self.gasto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventario" EntityType="Self.Inventario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="login" EntityType="Self.login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Metodo_de_Pago" EntityType="Self.Metodo_de_Pago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pagos" EntityType="Self.pagos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="registro_comprobantes" EntityType="Self.registro_comprobantes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="reparacion" EntityType="Self.reparacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="suplidor" EntityType="Self.suplidor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="taller" EntityType="Self.taller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_operacion" EntityType="Self.tipo_operacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipoUsuario" EntityType="Self.tipoUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="venta" EntityType="Self.venta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REPORTE_CXC" EntityType="Self.REPORTE_CXC" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[REPORTE_CXC].[ID_Cliente] AS [ID_Cliente], 
+[REPORTE_CXC].[Nombre] AS [Nombre], 
+[REPORTE_CXC].[Apellidos] AS [Apellidos], 
+[REPORTE_CXC].[Telefono] AS [Telefono], 
+[REPORTE_CXC].[Lugar_De_trabajo] AS [Lugar_De_trabajo], 
+[REPORTE_CXC].[Cedula] AS [Cedula], 
+[REPORTE_CXC].[Fecha] AS [Fecha], 
+[REPORTE_CXC].[Monto] AS [Monto]
+FROM [dbo].[REPORTE_CXC] AS [REPORTE_CXC]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_cotizacion" EntityType="Self.View_cotizacion" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[View_cotizacion].[idcotiza] AS [idcotiza], 
+[View_cotizacion].[cliente] AS [cliente], 
+[View_cotizacion].[direccion] AS [direccion], 
+[View_cotizacion].[telefono] AS [telefono], 
+[View_cotizacion].[fecha] AS [fecha], 
+[View_cotizacion].[total] AS [total], 
+[View_cotizacion].[estado] AS [estado], 
+[View_cotizacion].[rnc] AS [rnc], 
+[View_cotizacion].[totalItbis] AS [totalItbis], 
+[View_cotizacion].[idcotizacion] AS [idcotizacion], 
+[View_cotizacion].[nombre] AS [nombre], 
+[View_cotizacion].[cantidad] AS [cantidad], 
+[View_cotizacion].[subtotal] AS [subtotal], 
+[View_cotizacion].[totalProducto] AS [totalProducto], 
+[View_cotizacion].[Expr1] AS [Expr1], 
+[View_cotizacion].[Expr2] AS [Expr2], 
+[View_cotizacion].[Expr3] AS [Expr3], 
+[View_cotizacion].[codigo] AS [codigo], 
+[View_cotizacion].[Expr4] AS [Expr4], 
+[View_cotizacion].[totalCotizacion] AS [totalCotizacion], 
+[View_cotizacion].[Expr5] AS [Expr5], 
+[View_cotizacion].[idprd] AS [idprd], 
+[View_cotizacion].[itbis] AS [itbis], 
+[View_cotizacion].[tipodocumento] AS [tipodocumento]
+FROM [dbo].[View_cotizacion] AS [View_cotizacion]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Credito" EntityType="Self.View_Credito" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[View_Credito].[Nombre] AS [Nombre], 
+[View_Credito].[Apellidos] AS [Apellidos], 
+[View_Credito].[ID_Cliente] AS [ID_Cliente], 
+[View_Credito].[total] AS [total]
+FROM [dbo].[View_Credito] AS [View_Credito]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_cxc" EntityType="Self.View_cxc" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[View_cxc].[ID_Cliente] AS [ID_Cliente], 
+[View_cxc].[Nombre] AS [Nombre], 
+[View_cxc].[ID_CXC] AS [ID_CXC], 
+[View_cxc].[Fecha] AS [Fecha], 
+[View_cxc].[Monto] AS [Monto], 
+[View_cxc].[Cedula] AS [Cedula], 
+[View_cxc].[Apellidos] AS [Apellidos]
+FROM [dbo].[View_cxc] AS [View_cxc]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_descuento" EntityType="Self.View_descuento" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[View_descuento].[idventa] AS [idventa], 
+[View_descuento].[fecha] AS [fecha], 
+[View_descuento].[descuento] AS [descuento], 
+[View_descuento].[estado] AS [estado]
+FROM [dbo].[View_descuento] AS [View_descuento]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_factura" EntityType="Self.View_factura" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[View_factura].[Codigo_ID] AS [Codigo_ID], 
+[View_factura].[Descripcion_Producto] AS [Descripcion_Producto], 
+[View_factura].[ID_Cliente] AS [ID_Cliente], 
+[View_factura].[Nombre] AS [Nombre], 
+[View_factura].[ID_Metodo] AS [ID_Metodo], 
+[View_factura].[metodo] AS [metodo], 
+[View_factura].[iduser] AS [iduser], 
+[View_factura].[usuario] AS [usuario], 
+[View_factura].[idventa] AS [idventa], 
+[View_factura].[fecha] AS [fecha], 
+[View_factura].[monto] AS [monto], 
+[View_factura].[efectivo] AS [efectivo], 
+[View_factura].[tarjeta] AS [tarjeta], 
+[View_factura].[descuento] AS [descuento], 
+[View_factura].[credito] AS [credito], 
+[View_factura].[indtll] AS [indtll], 
+[View_factura].[precio] AS [precio], 
+[View_factura].[subtotal] AS [subtotal], 
+[View_factura].[cantidad] AS [cantidad], 
+[View_factura].[subtotal1] AS [subtotal1], 
+[View_factura].[itebis] AS [itebis], 
+[View_factura].[devuelta] AS [devuelta], 
+[View_factura].[ncf] AS [ncf], 
+[View_factura].[rnc] AS [rnc], 
+[View_factura].[cliente] AS [cliente], 
+[View_factura].[tipodocumento] AS [tipodocumento], 
+[View_factura].[totalItbis] AS [totalItbis], 
+[View_factura].[itbis] AS [itbis]
+FROM [dbo].[View_factura] AS [View_factura]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_ganancias" EntityType="Self.View_ganancias" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[View_ganancias].[codigo] AS [codigo], 
+[View_ganancias].[Nombre] AS [Nombre], 
+[View_ganancias].[Codigo_ID] AS [Codigo_ID], 
+[View_ganancias].[Cantidad] AS [Cantidad], 
+[View_ganancias].[precio_salida] AS [precio_salida], 
+[View_ganancias].[fecha] AS [fecha], 
+[View_ganancias].[precio_neto] AS [precio_neto], 
+[View_ganancias].[indtll] AS [indtll], 
+[View_ganancias].[Ganancia] AS [Ganancia], 
+[View_ganancias].[idventa] AS [idventa], 
+[View_ganancias].[total_1] AS [total_1], 
+[View_ganancias].[total_g] AS [total_g]
+FROM [dbo].[View_ganancias] AS [View_ganancias]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_inventario" EntityType="Self.View_inventario" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[View_inventario].[Codigo_ID] AS [Codigo_ID], 
+[View_inventario].[codigo] AS [codigo], 
+[View_inventario].[Nombre] AS [Nombre], 
+[View_inventario].[Categoria] AS [Categoria], 
+[View_inventario].[idsuplidor] AS [idsuplidor], 
+[View_inventario].[Expr1] AS [Expr1], 
+[View_inventario].[Descripcion_Producto] AS [Descripcion_Producto], 
+[View_inventario].[estatus] AS [estatus], 
+[View_inventario].[precio_neto] AS [precio_neto], 
+[View_inventario].[precio_salida] AS [precio_salida], 
+[View_inventario].[idcategoria] AS [idcategoria], 
+[View_inventario].[Expr2] AS [Expr2], 
+[View_inventario].[itbis] AS [itbis]
+FROM [dbo].[View_inventario] AS [View_inventario]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_productos" EntityType="Self.View_productos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[View_productos].[Codigo_ID] AS [Codigo_ID], 
+[View_productos].[Producto_Id] AS [Producto_Id], 
+[View_productos].[codigo] AS [codigo], 
+[View_productos].[Nombre] AS [Nombre], 
+[View_productos].[entredas] AS [entredas], 
+[View_productos].[salidas] AS [salidas], 
+[View_productos].[Cantidad] AS [Cantidad], 
+[View_productos].[precio_salida] AS [precio_salida], 
+[View_productos].[estatus] AS [estatus], 
+[View_productos].[Categoria] AS [Categoria]
+FROM [dbo].[View_productos] AS [View_productos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_reporte_inventario" EntityType="Self.View_reporte_inventario" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[View_reporte_inventario].[Producto_Id] AS [Producto_Id], 
+[View_reporte_inventario].[entradas] AS [entradas], 
+[View_reporte_inventario].[salidas] AS [salidas], 
+[View_reporte_inventario].[Nombre] AS [Nombre], 
+[View_reporte_inventario].[Descripcion_Producto] AS [Descripcion_Producto], 
+[View_reporte_inventario].[precio_neto] AS [precio_neto], 
+[View_reporte_inventario].[precio_salida] AS [precio_salida], 
+[View_reporte_inventario].[estatus] AS [estatus]
+FROM [dbo].[View_reporte_inventario] AS [View_reporte_inventario]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_stock" EntityType="Self.View_stock" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[View_stock].[Producto_Id] AS [Producto_Id], 
+[View_stock].[existencia] AS [existencia]
+FROM [dbo].[View_stock] AS [View_stock]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Cierre_caja_login" Association="Self.FK_Cierre_caja_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="Cierre_caja" EntitySet="Cierre_caja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CXC_Cliente1" Association="Self.FK_CXC_Cliente1">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="CXC" EntitySet="CXC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CXC_venta" Association="Self.FK_CXC_venta">
+            <End Role="venta" EntitySet="venta" />
+            <End Role="CXC" EntitySet="CXC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalleVenta_Producto" Association="Self.FK_detalleVenta_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="detalleVenta" EntitySet="detalleVenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalleVenta_venta" Association="Self.FK_detalleVenta_venta">
+            <End Role="venta" EntitySet="venta" />
+            <End Role="detalleVenta" EntitySet="detalleVenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gasto_login" Association="Self.FK_gasto_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="gasto" EntitySet="gasto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventario_Producto" Association="Self.FK_Inventario_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Inventario" EntitySet="Inventario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventario_tipo_operacion" Association="Self.FK_Inventario_tipo_operacion">
+            <End Role="tipo_operacion" EntitySet="tipo_operacion" />
+            <End Role="Inventario" EntitySet="Inventario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_login_configuracion" Association="Self.FK_login_configuracion">
+            <End Role="configuracion" EntitySet="configuracion" />
+            <End Role="login" EntitySet="login" />
+          </AssociationSet>
+          <AssociationSet Name="FK_login_tipoUsuario" Association="Self.FK_login_tipoUsuario">
+            <End Role="tipoUsuario" EntitySet="tipoUsuario" />
+            <End Role="login" EntitySet="login" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pagos_login" Association="Self.FK_pagos_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="pagos" EntitySet="pagos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_categoria" Association="Self.FK_Producto_categoria">
+            <End Role="categoria" EntitySet="categoria" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_suplidor" Association="Self.FK_Producto_suplidor">
+            <End Role="suplidor" EntitySet="suplidor" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_registro_comprobantes_comprobantes" Association="Self.FK_registro_comprobantes_comprobantes">
+            <End Role="comprobantes" EntitySet="comprobantes" />
+            <End Role="registro_comprobantes" EntitySet="registro_comprobantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_reparacion_empleado" Association="Self.FK_reparacion_empleado">
+            <End Role="empleado" EntitySet="empleado" />
+            <End Role="reparacion" EntitySet="reparacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_reparacion_venta" Association="Self.FK_reparacion_venta">
+            <End Role="venta" EntitySet="venta" />
+            <End Role="reparacion" EntitySet="reparacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_venta_Cliente" Association="Self.FK_venta_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="venta" EntitySet="venta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_venta_login" Association="Self.FK_venta_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="venta" EntitySet="venta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_venta_Metodo_de_Pago" Association="Self.FK_venta_Metodo_de_Pago">
+            <End Role="Metodo_de_Pago" EntitySet="Metodo_de_Pago" />
+            <End Role="venta" EntitySet="venta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="beutyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="beutyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="categoria" EntityType="beutyModel.categoria" />
+          <EntitySet Name="Cierre_caja" EntityType="beutyModel.Cierre_caja" />
+          <EntitySet Name="Cliente" EntityType="beutyModel.Cliente" />
+          <EntitySet Name="comprobantes" EntityType="beutyModel.comprobantes" />
+          <EntitySet Name="configuracion" EntityType="beutyModel.configuracion" />
+          <EntitySet Name="cotizacion" EntityType="beutyModel.cotizacion" />
+          <EntitySet Name="CXC" EntityType="beutyModel.CXC" />
+          <EntitySet Name="dbCotizacion" EntityType="beutyModel.dbCotizacion" />
+          <EntitySet Name="detalleVenta" EntityType="beutyModel.detalleVenta" />
+          <EntitySet Name="empleado" EntityType="beutyModel.empleado" />
+          <EntitySet Name="gasto" EntityType="beutyModel.gasto" />
+          <EntitySet Name="Inventario" EntityType="beutyModel.Inventario" />
+          <EntitySet Name="login" EntityType="beutyModel.login" />
+          <EntitySet Name="Metodo_de_Pago" EntityType="beutyModel.Metodo_de_Pago" />
+          <EntitySet Name="pagos" EntityType="beutyModel.pagos" />
+          <EntitySet Name="registro_comprobantes" EntityType="beutyModel.registro_comprobantes" />
+          <EntitySet Name="reparacion" EntityType="beutyModel.reparacion" />
+          <EntitySet Name="suplidor" EntityType="beutyModel.suplidor" />
+          <EntitySet Name="taller" EntityType="beutyModel.taller" />
+          <EntitySet Name="tipo_operacion" EntityType="beutyModel.tipo_operacion" />
+          <EntitySet Name="tipoUsuario" EntityType="beutyModel.tipoUsuario" />
+          <EntitySet Name="venta" EntityType="beutyModel.venta" />
+          <EntitySet Name="REPORTE_CXC" EntityType="beutyModel.REPORTE_CXC" />
+          <EntitySet Name="View_cotizacion" EntityType="beutyModel.View_cotizacion" />
+          <EntitySet Name="View_Credito" EntityType="beutyModel.View_Credito" />
+          <EntitySet Name="View_cxc" EntityType="beutyModel.View_cxc" />
+          <EntitySet Name="View_descuento" EntityType="beutyModel.View_descuento" />
+          <EntitySet Name="View_factura" EntityType="beutyModel.View_factura" />
+          <EntitySet Name="View_ganancias" EntityType="beutyModel.View_ganancias" />
+          <EntitySet Name="View_inventario" EntityType="beutyModel.View_inventario" />
+          <EntitySet Name="View_productos" EntityType="beutyModel.View_productos" />
+          <EntitySet Name="View_reporte_inventario" EntityType="beutyModel.View_reporte_inventario" />
+          <EntitySet Name="View_stock" EntityType="beutyModel.View_stock" />
+          <AssociationSet Name="FK_Cierre_caja_login" Association="beutyModel.FK_Cierre_caja_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="Cierre_caja" EntitySet="Cierre_caja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CXC_Cliente1" Association="beutyModel.FK_CXC_Cliente1">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="CXC" EntitySet="CXC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_venta_Cliente" Association="beutyModel.FK_venta_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="venta" EntitySet="venta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_registro_comprobantes_comprobantes" Association="beutyModel.FK_registro_comprobantes_comprobantes">
+            <End Role="comprobantes" EntitySet="comprobantes" />
+            <End Role="registro_comprobantes" EntitySet="registro_comprobantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_login_configuracion" Association="beutyModel.FK_login_configuracion">
+            <End Role="configuracion" EntitySet="configuracion" />
+            <End Role="login" EntitySet="login" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CXC_venta" Association="beutyModel.FK_CXC_venta">
+            <End Role="venta" EntitySet="venta" />
+            <End Role="CXC" EntitySet="CXC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalleVenta_venta" Association="beutyModel.FK_detalleVenta_venta">
+            <End Role="venta" EntitySet="venta" />
+            <End Role="detalleVenta" EntitySet="detalleVenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_reparacion_empleado" Association="beutyModel.FK_reparacion_empleado">
+            <End Role="empleado" EntitySet="empleado" />
+            <End Role="reparacion" EntitySet="reparacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gasto_login" Association="beutyModel.FK_gasto_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="gasto" EntitySet="gasto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventario_tipo_operacion" Association="beutyModel.FK_Inventario_tipo_operacion">
+            <End Role="tipo_operacion" EntitySet="tipo_operacion" />
+            <End Role="Inventario" EntitySet="Inventario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_login_tipoUsuario" Association="beutyModel.FK_login_tipoUsuario">
+            <End Role="tipoUsuario" EntitySet="tipoUsuario" />
+            <End Role="login" EntitySet="login" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pagos_login" Association="beutyModel.FK_pagos_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="pagos" EntitySet="pagos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_venta_login" Association="beutyModel.FK_venta_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="venta" EntitySet="venta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_venta_Metodo_de_Pago" Association="beutyModel.FK_venta_Metodo_de_Pago">
+            <End Role="Metodo_de_Pago" EntitySet="Metodo_de_Pago" />
+            <End Role="venta" EntitySet="venta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_reparacion_venta" Association="beutyModel.FK_reparacion_venta">
+            <End Role="venta" EntitySet="venta" />
+            <End Role="reparacion" EntitySet="reparacion" />
+          </AssociationSet>
+          <EntitySet Name="Producto" EntityType="beutyModel.Producto" />
+          <AssociationSet Name="FK_Producto_categoria" Association="beutyModel.FK_Producto_categoria">
+            <End Role="categoria" EntitySet="categoria" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalleVenta_Producto" Association="beutyModel.FK_detalleVenta_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="detalleVenta" EntitySet="detalleVenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventario_Producto" Association="beutyModel.FK_Inventario_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Inventario" EntitySet="Inventario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_suplidor" Association="beutyModel.FK_Producto_suplidor">
+            <End Role="suplidor" EntitySet="suplidor" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="categoria">
+          <Key>
+            <PropertyRef Name="idcategoria" />
+          </Key>
+          <Property Name="idcategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Producto" Relationship="beutyModel.FK_Producto_categoria" FromRole="categoria" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Cierre_caja">
+          <Key>
+            <PropertyRef Name="ini_caja" />
+          </Key>
+          <Property Name="ini_caja" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_cierre" Type="Int32" Nullable="false" />
+          <Property Name="credito" Type="Double" />
+          <Property Name="tarjeta" Type="Double" />
+          <Property Name="efectivo" Type="Double" Nullable="false" />
+          <Property Name="usuario" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="login" Relationship="beutyModel.FK_Cierre_caja_login" FromRole="Cierre_caja" ToRole="login" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="ID_Cliente" />
+          </Key>
+          <Property Name="ID_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dirreccion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lugar_De_trabajo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Cedula" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Limite_Credito" Type="Double" Nullable="false" />
+          <Property Name="estatus" Type="Boolean" />
+          <NavigationProperty Name="CXC" Relationship="beutyModel.FK_CXC_Cliente1" FromRole="Cliente" ToRole="CXC" />
+          <NavigationProperty Name="venta" Relationship="beutyModel.FK_venta_Cliente" FromRole="Cliente" ToRole="venta" />
+        </EntityType>
+        <EntityType Name="comprobantes">
+          <Key>
+            <PropertyRef Name="idomprobantes" />
+          </Key>
+          <Property Name="idomprobantes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Boolean" />
+          <Property Name="cantidad" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="secuencia" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="secuencia_finalizar" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="registro_comprobantes" Relationship="beutyModel.FK_registro_comprobantes_comprobantes" FromRole="comprobantes" ToRole="registro_comprobantes" />
+        </EntityType>
+        <EntityType Name="configuracion">
+          <Key>
+            <PropertyRef Name="idcconfig" />
+          </Key>
+          <Property Name="idcconfig" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="rnc" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="ubicacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="empre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="redes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estatus" Type="Boolean" />
+          <Property Name="p" Type="Double" />
+          <Property Name="correo_empresarial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="login" Relationship="beutyModel.FK_login_configuracion" FromRole="configuracion" ToRole="login" />
+        </EntityType>
+        <EntityType Name="cotizacion">
+          <Key>
+            <PropertyRef Name="idcotizacion" />
+          </Key>
+          <Property Name="idcotizacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cantidad" Type="Double" />
+          <Property Name="subtotal" Type="Double" />
+          <Property Name="total" Type="Double" />
+          <Property Name="estado" Type="Boolean" />
+          <Property Name="cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="totalCotizacion" Type="Double" />
+          <Property Name="idcotiza" Type="Int32" />
+          <Property Name="idprd" Type="Int32" />
+          <Property Name="itbis" Type="Double" />
+          <Property Name="tipodocumento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CXC">
+          <Key>
+            <PropertyRef Name="ID_CXC" />
+          </Key>
+          <Property Name="ID_CXC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_Cliente" Type="Int32" Nullable="false" />
+          <Property Name="Monto" Type="Double" Nullable="false" />
+          <Property Name="usuario" Type="Int32" />
+          <Property Name="venta" Type="Int32" />
+          <NavigationProperty Name="Cliente" Relationship="beutyModel.FK_CXC_Cliente1" FromRole="CXC" ToRole="Cliente" />
+          <NavigationProperty Name="venta1" Relationship="beutyModel.FK_CXC_venta" FromRole="CXC" ToRole="venta" />
+        </EntityType>
+        <EntityType Name="dbCotizacion">
+          <Key>
+            <PropertyRef Name="idcotiza" />
+          </Key>
+          <Property Name="idcotiza" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="total" Type="Double" />
+          <Property Name="estado" Type="Boolean" />
+          <Property Name="rnc" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="totalItbis" Type="Double" />
+        </EntityType>
+        <EntityType Name="detalleVenta">
+          <Key>
+            <PropertyRef Name="indtll" />
+          </Key>
+          <Property Name="indtll" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ventaid" Type="Int32" />
+          <Property Name="idproducto" Type="Int32" />
+          <Property Name="cantidad" Type="Double" />
+          <Property Name="precio" Type="Double" />
+          <Property Name="monto" Type="Double" />
+          <Property Name="itbis" Type="Double" />
+          <NavigationProperty Name="venta" Relationship="beutyModel.FK_detalleVenta_venta" FromRole="detalleVenta" ToRole="venta" />
+          <NavigationProperty Name="Producto" Relationship="beutyModel.FK_detalleVenta_Producto" FromRole="detalleVenta" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="empleado">
+          <Key>
+            <PropertyRef Name="idempleado" />
+          </Key>
+          <Property Name="idempleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="comision" Type="Double" />
+          <NavigationProperty Name="reparacion" Relationship="beutyModel.FK_reparacion_empleado" FromRole="empleado" ToRole="reparacion" />
+        </EntityType>
+        <EntityType Name="gasto">
+          <Key>
+            <PropertyRef Name="idgasto" />
+          </Key>
+          <Property Name="idgasto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="detalle" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="monto" Type="Double" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="estado" Type="Boolean" />
+          <Property Name="iduser" Type="Int32" />
+          <NavigationProperty Name="login" Relationship="beutyModel.FK_gasto_login" FromRole="gasto" ToRole="login" />
+        </EntityType>
+        <EntityType Name="Inventario">
+          <Key>
+            <PropertyRef Name="ID_Inventario" />
+          </Key>
+          <Property Name="ID_Inventario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Producto_Id" Type="Int32" Nullable="false" />
+          <Property Name="entrada" Type="Double" Nullable="false" />
+          <Property Name="Fecha_Ingreso" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="tipo_operacion" Type="Int32" />
+          <Property Name="salida" Type="Double" />
+          <NavigationProperty Name="tipo_operacion1" Relationship="beutyModel.FK_Inventario_tipo_operacion" FromRole="Inventario" ToRole="tipo_operacion" />
+          <NavigationProperty Name="Producto" Relationship="beutyModel.FK_Inventario_Producto" FromRole="Inventario" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="iduser" />
+          </Key>
+          <Property Name="iduser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="usuario" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="pass" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipo" Type="Int32" Nullable="false" />
+          <Property Name="estatus" Type="Boolean" />
+          <Property Name="empresa" Type="Int32" />
+          <NavigationProperty Name="Cierre_caja" Relationship="beutyModel.FK_Cierre_caja_login" FromRole="login" ToRole="Cierre_caja" />
+          <NavigationProperty Name="configuracion" Relationship="beutyModel.FK_login_configuracion" FromRole="login" ToRole="configuracion" />
+          <NavigationProperty Name="gasto" Relationship="beutyModel.FK_gasto_login" FromRole="login" ToRole="gasto" />
+          <NavigationProperty Name="tipoUsuario" Relationship="beutyModel.FK_login_tipoUsuario" FromRole="login" ToRole="tipoUsuario" />
+          <NavigationProperty Name="pagos" Relationship="beutyModel.FK_pagos_login" FromRole="login" ToRole="pagos" />
+          <NavigationProperty Name="venta" Relationship="beutyModel.FK_venta_login" FromRole="login" ToRole="venta" />
+        </EntityType>
+        <EntityType Name="Metodo_de_Pago">
+          <Key>
+            <PropertyRef Name="ID_Metodo" />
+          </Key>
+          <Property Name="ID_Metodo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="venta" Relationship="beutyModel.FK_venta_Metodo_de_Pago" FromRole="Metodo_de_Pago" ToRole="venta" />
+        </EntityType>
+        <EntityType Name="pagos">
+          <Key>
+            <PropertyRef Name="idpago" />
+          </Key>
+          <Property Name="idpago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idusuario" Type="Int32" />
+          <Property Name="monto" Type="Double" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="login" Relationship="beutyModel.FK_pagos_login" FromRole="pagos" ToRole="login" />
+        </EntityType>
+        <EntityType Name="registro_comprobantes">
+          <Key>
+            <PropertyRef Name="id_registro" />
+          </Key>
+          <Property Name="id_registro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idcomp" Type="Int32" Nullable="false" />
+          <Property Name="secuencia" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="comprobantes" Relationship="beutyModel.FK_registro_comprobantes_comprobantes" FromRole="registro_comprobantes" ToRole="comprobantes" />
+        </EntityType>
+        <EntityType Name="reparacion">
+          <Key>
+            <PropertyRef Name="idtrabajo" />
+          </Key>
+          <Property Name="idtrabajo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="empledoid" Type="Int32" />
+          <Property Name="ventaid" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="monto" Type="Double" />
+          <NavigationProperty Name="empleado" Relationship="beutyModel.FK_reparacion_empleado" FromRole="reparacion" ToRole="empleado" />
+          <NavigationProperty Name="venta" Relationship="beutyModel.FK_reparacion_venta" FromRole="reparacion" ToRole="venta" />
+        </EntityType>
+        <EntityType Name="suplidor">
+          <Key>
+            <PropertyRef Name="idsuplidor" />
+          </Key>
+          <Property Name="idsuplidor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Producto" Relationship="beutyModel.FK_Producto_suplidor" FromRole="suplidor" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="taller">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="detalle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cantidad" Type="Double" />
+          <Property Name="subtotal" Type="Double" />
+          <Property Name="total" Type="Double" />
+          <Property Name="referencia" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="mecanico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idmecanico" Type="Int32" />
+          <Property Name="estado" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tipo_operacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Inventario" Relationship="beutyModel.FK_Inventario_tipo_operacion" FromRole="tipo_operacion" ToRole="Inventario" />
+        </EntityType>
+        <EntityType Name="tipoUsuario">
+          <Key>
+            <PropertyRef Name="idtipo" />
+          </Key>
+          <Property Name="idtipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="login" Relationship="beutyModel.FK_login_tipoUsuario" FromRole="tipoUsuario" ToRole="login" />
+        </EntityType>
+        <EntityType Name="venta">
+          <Key>
+            <PropertyRef Name="idventa" />
+          </Key>
+          <Property Name="idventa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idcliente" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="usuario" Type="Int32" />
+          <Property Name="monto" Type="Double" />
+          <Property Name="metodo" Type="Int32" />
+          <Property Name="efectivo" Type="Double" />
+          <Property Name="tarjeta" Type="Double" />
+          <Property Name="descuento" Type="Double" />
+          <Property Name="credito" Type="Double" />
+          <Property Name="subtotal" Type="Double" />
+          <Property Name="itebis" Type="Double" />
+          <Property Name="devuelta" Type="Double" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vendedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ncf" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="rnc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tipodocumento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="totalItbis" Type="Double" />
+          <NavigationProperty Name="Cliente1" Relationship="beutyModel.FK_venta_Cliente" FromRole="venta" ToRole="Cliente" />
+          <NavigationProperty Name="CXC" Relationship="beutyModel.FK_CXC_venta" FromRole="venta" ToRole="CXC" />
+          <NavigationProperty Name="detalleVenta" Relationship="beutyModel.FK_detalleVenta_venta" FromRole="venta" ToRole="detalleVenta" />
+          <NavigationProperty Name="login" Relationship="beutyModel.FK_venta_login" FromRole="venta" ToRole="login" />
+          <NavigationProperty Name="Metodo_de_Pago" Relationship="beutyModel.FK_venta_Metodo_de_Pago" FromRole="venta" ToRole="Metodo_de_Pago" />
+          <NavigationProperty Name="reparacion" Relationship="beutyModel.FK_reparacion_venta" FromRole="venta" ToRole="reparacion" />
+        </EntityType>
+        <EntityType Name="REPORTE_CXC">
+          <Key>
+            <PropertyRef Name="ID_Cliente" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Apellidos" />
+            <PropertyRef Name="Telefono" />
+            <PropertyRef Name="Lugar_De_trabajo" />
+            <PropertyRef Name="Cedula" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Monto" />
+          </Key>
+          <Property Name="ID_Cliente" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Lugar_De_trabajo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Cedula" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Monto" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_cotizacion">
+          <Key>
+            <PropertyRef Name="idcotiza" />
+            <PropertyRef Name="telefono" />
+            <PropertyRef Name="idcotizacion" />
+          </Key>
+          <Property Name="idcotiza" Type="Int32" Nullable="false" />
+          <Property Name="cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="total" Type="Double" />
+          <Property Name="estado" Type="Boolean" />
+          <Property Name="rnc" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="totalItbis" Type="Double" />
+          <Property Name="idcotizacion" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cantidad" Type="Double" />
+          <Property Name="subtotal" Type="Double" />
+          <Property Name="totalProducto" Type="Double" />
+          <Property Name="Expr1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Expr2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Expr3" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Expr4" Type="DateTime" Precision="0" />
+          <Property Name="totalCotizacion" Type="Double" />
+          <Property Name="Expr5" Type="Int32" />
+          <Property Name="idprd" Type="Int32" />
+          <Property Name="itbis" Type="Double" />
+          <Property Name="tipodocumento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_Credito">
+          <Key>
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Apellidos" />
+            <PropertyRef Name="ID_Cliente" />
+          </Key>
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Cliente" Type="Int32" Nullable="false" />
+          <Property Name="total" Type="Double" />
+        </EntityType>
+        <EntityType Name="View_cxc">
+          <Key>
+            <PropertyRef Name="ID_Cliente" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="ID_CXC" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Monto" />
+            <PropertyRef Name="Cedula" />
+            <PropertyRef Name="Apellidos" />
+          </Key>
+          <Property Name="ID_Cliente" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ID_CXC" Type="Int32" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Monto" Type="Double" Nullable="false" />
+          <Property Name="Cedula" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_descuento">
+          <Key>
+            <PropertyRef Name="idventa" />
+          </Key>
+          <Property Name="idventa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="descuento" Type="Double" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_factura">
+          <Key>
+            <PropertyRef Name="Codigo_ID" />
+            <PropertyRef Name="ID_Cliente" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="ID_Metodo" />
+            <PropertyRef Name="iduser" />
+            <PropertyRef Name="usuario" />
+            <PropertyRef Name="idventa" />
+            <PropertyRef Name="indtll" />
+          </Key>
+          <Property Name="Codigo_ID" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion_Producto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Cliente" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Metodo" Type="Int32" Nullable="false" />
+          <Property Name="metodo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="iduser" Type="Int32" Nullable="false" />
+          <Property Name="usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idventa" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="monto" Type="Double" />
+          <Property Name="efectivo" Type="Double" />
+          <Property Name="tarjeta" Type="Double" />
+          <Property Name="descuento" Type="Double" />
+          <Property Name="credito" Type="Double" />
+          <Property Name="indtll" Type="Int32" Nullable="false" />
+          <Property Name="precio" Type="Double" />
+          <Property Name="subtotal" Type="Double" />
+          <Property Name="cantidad" Type="Double" />
+          <Property Name="subtotal1" Type="Double" />
+          <Property Name="itebis" Type="Double" />
+          <Property Name="devuelta" Type="Double" />
+          <Property Name="ncf" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="rnc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tipodocumento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="totalItbis" Type="Double" />
+          <Property Name="itbis" Type="Double" />
+        </EntityType>
+        <EntityType Name="View_ganancias">
+          <Key>
+            <PropertyRef Name="Codigo_ID" />
+            <PropertyRef Name="indtll" />
+            <PropertyRef Name="idventa" />
+          </Key>
+          <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo_ID" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Double" />
+          <Property Name="precio_salida" Type="Double" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="precio_neto" Type="Double" />
+          <Property Name="indtll" Type="Int32" Nullable="false" />
+          <Property Name="Ganancia" Type="Double" />
+          <Property Name="idventa" Type="Int32" Nullable="false" />
+          <Property Name="total_1" Type="Double" />
+          <Property Name="total_g" Type="Double" />
+        </EntityType>
+        <EntityType Name="View_inventario">
+          <Key>
+            <PropertyRef Name="Codigo_ID" />
+            <PropertyRef Name="idsuplidor" />
+            <PropertyRef Name="idcategoria" />
+          </Key>
+          <Property Name="Codigo_ID" Type="Int32" Nullable="false" />
+          <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Categoria" Type="Int32" />
+          <Property Name="idsuplidor" Type="Int32" Nullable="false" />
+          <Property Name="Expr1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion_Producto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="estatus" Type="Boolean" />
+          <Property Name="precio_neto" Type="Double" />
+          <Property Name="precio_salida" Type="Double" />
+          <Property Name="idcategoria" Type="Int32" Nullable="false" />
+          <Property Name="Expr2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="itbis" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="View_productos">
+          <Key>
+            <PropertyRef Name="Codigo_ID" />
+            <PropertyRef Name="Producto_Id" />
+          </Key>
+          <Property Name="Codigo_ID" Type="Int32" Nullable="false" />
+          <Property Name="Producto_Id" Type="Int32" Nullable="false" />
+          <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="entredas" Type="Double" />
+          <Property Name="salidas" Type="Double" />
+          <Property Name="Cantidad" Type="Double" />
+          <Property Name="precio_salida" Type="Double" />
+          <Property Name="estatus" Type="Boolean" />
+          <Property Name="Categoria" Type="Int32" />
+        </EntityType>
+        <EntityType Name="View_reporte_inventario">
+          <Key>
+            <PropertyRef Name="Producto_Id" />
+          </Key>
+          <Property Name="Producto_Id" Type="Int32" Nullable="false" />
+          <Property Name="entradas" Type="Double" />
+          <Property Name="salidas" Type="Double" />
+          <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion_Producto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="precio_neto" Type="Double" />
+          <Property Name="precio_salida" Type="Double" />
+          <Property Name="estatus" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="View_stock">
+          <Key>
+            <PropertyRef Name="Producto_Id" />
+          </Key>
+          <Property Name="Producto_Id" Type="Int32" Nullable="false" />
+          <Property Name="existencia" Type="Double" />
+        </EntityType>
+        <Association Name="FK_Cierre_caja_login">
+          <End Type="beutyModel.login" Role="login" Multiplicity="1" />
+          <End Type="beutyModel.Cierre_caja" Role="Cierre_caja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="iduser" />
+            </Principal>
+            <Dependent Role="Cierre_caja">
+              <PropertyRef Name="usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CXC_Cliente1">
+          <End Type="beutyModel.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="beutyModel.CXC" Role="CXC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="ID_Cliente" />
+            </Principal>
+            <Dependent Role="CXC">
+              <PropertyRef Name="ID_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_venta_Cliente">
+          <End Type="beutyModel.Cliente" Role="Cliente" Multiplicity="0..1" />
+          <End Type="beutyModel.venta" Role="venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="ID_Cliente" />
+            </Principal>
+            <Dependent Role="venta">
+              <PropertyRef Name="idcliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_registro_comprobantes_comprobantes">
+          <End Type="beutyModel.comprobantes" Role="comprobantes" Multiplicity="1" />
+          <End Type="beutyModel.registro_comprobantes" Role="registro_comprobantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comprobantes">
+              <PropertyRef Name="idomprobantes" />
+            </Principal>
+            <Dependent Role="registro_comprobantes">
+              <PropertyRef Name="idcomp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_login_configuracion">
+          <End Type="beutyModel.configuracion" Role="configuracion" Multiplicity="0..1" />
+          <End Type="beutyModel.login" Role="login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="configuracion">
+              <PropertyRef Name="idcconfig" />
+            </Principal>
+            <Dependent Role="login">
+              <PropertyRef Name="empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CXC_venta">
+          <End Type="beutyModel.venta" Role="venta" Multiplicity="0..1" />
+          <End Type="beutyModel.CXC" Role="CXC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="venta">
+              <PropertyRef Name="idventa" />
+            </Principal>
+            <Dependent Role="CXC">
+              <PropertyRef Name="venta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalleVenta_venta">
+          <End Type="beutyModel.venta" Role="venta" Multiplicity="0..1" />
+          <End Type="beutyModel.detalleVenta" Role="detalleVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="venta">
+              <PropertyRef Name="idventa" />
+            </Principal>
+            <Dependent Role="detalleVenta">
+              <PropertyRef Name="ventaid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_reparacion_empleado">
+          <End Type="beutyModel.empleado" Role="empleado" Multiplicity="0..1" />
+          <End Type="beutyModel.reparacion" Role="reparacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empleado">
+              <PropertyRef Name="idempleado" />
+            </Principal>
+            <Dependent Role="reparacion">
+              <PropertyRef Name="empledoid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gasto_login">
+          <End Type="beutyModel.login" Role="login" Multiplicity="0..1" />
+          <End Type="beutyModel.gasto" Role="gasto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="iduser" />
+            </Principal>
+            <Dependent Role="gasto">
+              <PropertyRef Name="iduser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventario_tipo_operacion">
+          <End Type="beutyModel.tipo_operacion" Role="tipo_operacion" Multiplicity="0..1" />
+          <End Type="beutyModel.Inventario" Role="Inventario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_operacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Inventario">
+              <PropertyRef Name="tipo_operacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_login_tipoUsuario">
+          <End Type="beutyModel.tipoUsuario" Role="tipoUsuario" Multiplicity="1" />
+          <End Type="beutyModel.login" Role="login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoUsuario">
+              <PropertyRef Name="idtipo" />
+            </Principal>
+            <Dependent Role="login">
+              <PropertyRef Name="tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pagos_login">
+          <End Type="beutyModel.login" Role="login" Multiplicity="0..1" />
+          <End Type="beutyModel.pagos" Role="pagos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="iduser" />
+            </Principal>
+            <Dependent Role="pagos">
+              <PropertyRef Name="idusuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_venta_login">
+          <End Type="beutyModel.login" Role="login" Multiplicity="0..1" />
+          <End Type="beutyModel.venta" Role="venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="iduser" />
+            </Principal>
+            <Dependent Role="venta">
+              <PropertyRef Name="usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_venta_Metodo_de_Pago">
+          <End Type="beutyModel.Metodo_de_Pago" Role="Metodo_de_Pago" Multiplicity="0..1" />
+          <End Type="beutyModel.venta" Role="venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Metodo_de_Pago">
+              <PropertyRef Name="ID_Metodo" />
+            </Principal>
+            <Dependent Role="venta">
+              <PropertyRef Name="metodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_reparacion_venta">
+          <End Type="beutyModel.venta" Role="venta" Multiplicity="0..1" />
+          <End Type="beutyModel.reparacion" Role="reparacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="venta">
+              <PropertyRef Name="idventa" />
+            </Principal>
+            <Dependent Role="reparacion">
+              <PropertyRef Name="ventaid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Codigo_ID" />
+          </Key>
+          <Property Name="Codigo_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Categoria" Type="Int32" />
+          <Property Name="Suplidor" Type="Int32" />
+          <Property Name="Descripcion_Producto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="estatus" Type="Boolean" />
+          <Property Name="precio_neto" Type="Double" />
+          <Property Name="precio_salida" Type="Double" />
+          <Property Name="impuesto" Type="Double" />
+          <Property Name="fecha_entrada" Type="DateTime" Precision="0" />
+          <Property Name="itbis" Type="Boolean" />
+          <NavigationProperty Name="categoria1" Relationship="beutyModel.FK_Producto_categoria" FromRole="Producto" ToRole="categoria" />
+          <NavigationProperty Name="detalleVenta" Relationship="beutyModel.FK_detalleVenta_Producto" FromRole="Producto" ToRole="detalleVenta" />
+          <NavigationProperty Name="Inventario" Relationship="beutyModel.FK_Inventario_Producto" FromRole="Producto" ToRole="Inventario" />
+          <NavigationProperty Name="suplidor1" Relationship="beutyModel.FK_Producto_suplidor" FromRole="Producto" ToRole="suplidor" />
+        </EntityType>
+        <Association Name="FK_Producto_categoria">
+          <End Type="beutyModel.categoria" Role="categoria" Multiplicity="0..1" />
+          <End Type="beutyModel.Producto" Role="Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria">
+              <PropertyRef Name="idcategoria" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalleVenta_Producto">
+          <End Type="beutyModel.Producto" Role="Producto" Multiplicity="0..1" />
+          <End Type="beutyModel.detalleVenta" Role="detalleVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Codigo_ID" />
+            </Principal>
+            <Dependent Role="detalleVenta">
+              <PropertyRef Name="idproducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventario_Producto">
+          <End Type="beutyModel.Producto" Role="Producto" Multiplicity="1" />
+          <End Type="beutyModel.Inventario" Role="Inventario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Codigo_ID" />
+            </Principal>
+            <Dependent Role="Inventario">
+              <PropertyRef Name="Producto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_suplidor">
+          <End Type="beutyModel.suplidor" Role="suplidor" Multiplicity="0..1" />
+          <End Type="beutyModel.Producto" Role="Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="suplidor">
+              <PropertyRef Name="idsuplidor" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Suplidor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="beutyModelStoreContainer" CdmEntityContainer="beutyEntities">
+          <EntitySetMapping Name="categoria">
+            <EntityTypeMapping TypeName="beutyModel.categoria">
+              <MappingFragment StoreEntitySet="categoria">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idcategoria" ColumnName="idcategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cierre_caja">
+            <EntityTypeMapping TypeName="beutyModel.Cierre_caja">
+              <MappingFragment StoreEntitySet="Cierre_caja">
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="efectivo" ColumnName="efectivo" />
+                <ScalarProperty Name="tarjeta" ColumnName="tarjeta" />
+                <ScalarProperty Name="credito" ColumnName="credito" />
+                <ScalarProperty Name="id_cierre" ColumnName="id_cierre" />
+                <ScalarProperty Name="ini_caja" ColumnName="ini_caja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="beutyModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="Limite_Credito" ColumnName="Limite_Credito" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Lugar_De_trabajo" ColumnName="Lugar_De_trabajo" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Dirreccion" ColumnName="Dirreccion" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comprobantes">
+            <EntityTypeMapping TypeName="beutyModel.comprobantes">
+              <MappingFragment StoreEntitySet="comprobantes">
+                <ScalarProperty Name="secuencia_finalizar" ColumnName="secuencia_finalizar" />
+                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="idomprobantes" ColumnName="idomprobantes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="configuracion">
+            <EntityTypeMapping TypeName="beutyModel.configuracion">
+              <MappingFragment StoreEntitySet="configuracion">
+                <ScalarProperty Name="correo_empresarial" ColumnName="correo_empresarial" />
+                <ScalarProperty Name="p" ColumnName="p" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="redes" ColumnName="redes" />
+                <ScalarProperty Name="logo" ColumnName="logo" />
+                <ScalarProperty Name="empre" ColumnName="empre" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="rnc" ColumnName="rnc" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idcconfig" ColumnName="idcconfig" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cotizacion">
+            <EntityTypeMapping TypeName="beutyModel.cotizacion">
+              <MappingFragment StoreEntitySet="cotizacion">
+                <ScalarProperty Name="tipodocumento" ColumnName="tipodocumento" />
+                <ScalarProperty Name="itbis" ColumnName="itbis" />
+                <ScalarProperty Name="idprd" ColumnName="idprd" />
+                <ScalarProperty Name="idcotiza" ColumnName="idcotiza" />
+                <ScalarProperty Name="totalCotizacion" ColumnName="totalCotizacion" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idcotizacion" ColumnName="idcotizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CXC">
+            <EntityTypeMapping TypeName="beutyModel.CXC">
+              <MappingFragment StoreEntitySet="CXC">
+                <ScalarProperty Name="venta" ColumnName="venta" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="ID_CXC" ColumnName="ID_CXC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbCotizacion">
+            <EntityTypeMapping TypeName="beutyModel.dbCotizacion">
+              <MappingFragment StoreEntitySet="dbCotizacion">
+                <ScalarProperty Name="totalItbis" ColumnName="totalItbis" />
+                <ScalarProperty Name="rnc" ColumnName="rnc" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="idcotiza" ColumnName="idcotiza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="detalleVenta">
+            <EntityTypeMapping TypeName="beutyModel.detalleVenta">
+              <MappingFragment StoreEntitySet="detalleVenta">
+                <ScalarProperty Name="itbis" ColumnName="itbis" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="idproducto" ColumnName="idproducto" />
+                <ScalarProperty Name="ventaid" ColumnName="ventaid" />
+                <ScalarProperty Name="indtll" ColumnName="indtll" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="empleado">
+            <EntityTypeMapping TypeName="beutyModel.empleado">
+              <MappingFragment StoreEntitySet="empleado">
+                <ScalarProperty Name="comision" ColumnName="comision" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gasto">
+            <EntityTypeMapping TypeName="beutyModel.gasto">
+              <MappingFragment StoreEntitySet="gasto">
+                <ScalarProperty Name="iduser" ColumnName="iduser" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="idgasto" ColumnName="idgasto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventario">
+            <EntityTypeMapping TypeName="beutyModel.Inventario">
+              <MappingFragment StoreEntitySet="Inventario">
+                <ScalarProperty Name="salida" ColumnName="salida" />
+                <ScalarProperty Name="tipo_operacion" ColumnName="tipo_operacion" />
+                <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha_Ingreso" />
+                <ScalarProperty Name="entrada" ColumnName="entrada" />
+                <ScalarProperty Name="Producto_Id" ColumnName="Producto_Id" />
+                <ScalarProperty Name="ID_Inventario" ColumnName="ID_Inventario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="login">
+            <EntityTypeMapping TypeName="beutyModel.login">
+              <MappingFragment StoreEntitySet="login">
+                <ScalarProperty Name="empresa" ColumnName="empresa" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="iduser" ColumnName="iduser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Metodo_de_Pago">
+            <EntityTypeMapping TypeName="beutyModel.Metodo_de_Pago">
+              <MappingFragment StoreEntitySet="Metodo_de_Pago">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="ID_Metodo" ColumnName="ID_Metodo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pagos">
+            <EntityTypeMapping TypeName="beutyModel.pagos">
+              <MappingFragment StoreEntitySet="pagos">
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+                <ScalarProperty Name="idpago" ColumnName="idpago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="registro_comprobantes">
+            <EntityTypeMapping TypeName="beutyModel.registro_comprobantes">
+              <MappingFragment StoreEntitySet="registro_comprobantes">
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+                <ScalarProperty Name="idcomp" ColumnName="idcomp" />
+                <ScalarProperty Name="id_registro" ColumnName="id_registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reparacion">
+            <EntityTypeMapping TypeName="beutyModel.reparacion">
+              <MappingFragment StoreEntitySet="reparacion">
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="ventaid" ColumnName="ventaid" />
+                <ScalarProperty Name="empledoid" ColumnName="empledoid" />
+                <ScalarProperty Name="idtrabajo" ColumnName="idtrabajo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suplidor">
+            <EntityTypeMapping TypeName="beutyModel.suplidor">
+              <MappingFragment StoreEntitySet="suplidor">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idsuplidor" ColumnName="idsuplidor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="taller">
+            <EntityTypeMapping TypeName="beutyModel.taller">
+              <MappingFragment StoreEntitySet="taller">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="idmecanico" ColumnName="idmecanico" />
+                <ScalarProperty Name="mecanico" ColumnName="mecanico" />
+                <ScalarProperty Name="referencia" ColumnName="referencia" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_operacion">
+            <EntityTypeMapping TypeName="beutyModel.tipo_operacion">
+              <MappingFragment StoreEntitySet="tipo_operacion">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoUsuario">
+            <EntityTypeMapping TypeName="beutyModel.tipoUsuario">
+              <MappingFragment StoreEntitySet="tipoUsuario">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idtipo" ColumnName="idtipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="venta">
+            <EntityTypeMapping TypeName="beutyModel.venta">
+              <MappingFragment StoreEntitySet="venta">
+                <ScalarProperty Name="totalItbis" ColumnName="totalItbis" />
+                <ScalarProperty Name="tipodocumento" ColumnName="tipodocumento" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="rnc" ColumnName="rnc" />
+                <ScalarProperty Name="ncf" ColumnName="ncf" />
+                <ScalarProperty Name="vendedor" ColumnName="vendedor" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="devuelta" ColumnName="devuelta" />
+                <ScalarProperty Name="itebis" ColumnName="itebis" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+                <ScalarProperty Name="credito" ColumnName="credito" />
+                <ScalarProperty Name="descuento" ColumnName="descuento" />
+                <ScalarProperty Name="tarjeta" ColumnName="tarjeta" />
+                <ScalarProperty Name="efectivo" ColumnName="efectivo" />
+                <ScalarProperty Name="metodo" ColumnName="metodo" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="idcliente" ColumnName="idcliente" />
+                <ScalarProperty Name="idventa" ColumnName="idventa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPORTE_CXC">
+            <EntityTypeMapping TypeName="beutyModel.REPORTE_CXC">
+              <MappingFragment StoreEntitySet="REPORTE_CXC">
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Lugar_De_trabajo" ColumnName="Lugar_De_trabajo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_cotizacion">
+            <EntityTypeMapping TypeName="beutyModel.View_cotizacion">
+              <MappingFragment StoreEntitySet="View_cotizacion">
+                <ScalarProperty Name="tipodocumento" ColumnName="tipodocumento" />
+                <ScalarProperty Name="itbis" ColumnName="itbis" />
+                <ScalarProperty Name="idprd" ColumnName="idprd" />
+                <ScalarProperty Name="Expr5" ColumnName="Expr5" />
+                <ScalarProperty Name="totalCotizacion" ColumnName="totalCotizacion" />
+                <ScalarProperty Name="Expr4" ColumnName="Expr4" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="Expr3" ColumnName="Expr3" />
+                <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="totalProducto" ColumnName="totalProducto" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idcotizacion" ColumnName="idcotizacion" />
+                <ScalarProperty Name="totalItbis" ColumnName="totalItbis" />
+                <ScalarProperty Name="rnc" ColumnName="rnc" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="idcotiza" ColumnName="idcotiza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Credito">
+            <EntityTypeMapping TypeName="beutyModel.View_Credito">
+              <MappingFragment StoreEntitySet="View_Credito">
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_cxc">
+            <EntityTypeMapping TypeName="beutyModel.View_cxc">
+              <MappingFragment StoreEntitySet="View_cxc">
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="ID_CXC" ColumnName="ID_CXC" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_descuento">
+            <EntityTypeMapping TypeName="beutyModel.View_descuento">
+              <MappingFragment StoreEntitySet="View_descuento">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="descuento" ColumnName="descuento" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="idventa" ColumnName="idventa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_factura">
+            <EntityTypeMapping TypeName="beutyModel.View_factura">
+              <MappingFragment StoreEntitySet="View_factura">
+                <ScalarProperty Name="itbis" ColumnName="itbis" />
+                <ScalarProperty Name="totalItbis" ColumnName="totalItbis" />
+                <ScalarProperty Name="tipodocumento" ColumnName="tipodocumento" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="rnc" ColumnName="rnc" />
+                <ScalarProperty Name="ncf" ColumnName="ncf" />
+                <ScalarProperty Name="devuelta" ColumnName="devuelta" />
+                <ScalarProperty Name="itebis" ColumnName="itebis" />
+                <ScalarProperty Name="subtotal1" ColumnName="subtotal1" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="indtll" ColumnName="indtll" />
+                <ScalarProperty Name="credito" ColumnName="credito" />
+                <ScalarProperty Name="descuento" ColumnName="descuento" />
+                <ScalarProperty Name="tarjeta" ColumnName="tarjeta" />
+                <ScalarProperty Name="efectivo" ColumnName="efectivo" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="idventa" ColumnName="idventa" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="iduser" ColumnName="iduser" />
+                <ScalarProperty Name="metodo" ColumnName="metodo" />
+                <ScalarProperty Name="ID_Metodo" ColumnName="ID_Metodo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+                <ScalarProperty Name="Descripcion_Producto" ColumnName="Descripcion_Producto" />
+                <ScalarProperty Name="Codigo_ID" ColumnName="Codigo_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_ganancias">
+            <EntityTypeMapping TypeName="beutyModel.View_ganancias">
+              <MappingFragment StoreEntitySet="View_ganancias">
+                <ScalarProperty Name="total_g" ColumnName="total_g" />
+                <ScalarProperty Name="total_1" ColumnName="total_1" />
+                <ScalarProperty Name="idventa" ColumnName="idventa" />
+                <ScalarProperty Name="Ganancia" ColumnName="Ganancia" />
+                <ScalarProperty Name="indtll" ColumnName="indtll" />
+                <ScalarProperty Name="precio_neto" ColumnName="precio_neto" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="precio_salida" ColumnName="precio_salida" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Codigo_ID" ColumnName="Codigo_ID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_inventario">
+            <EntityTypeMapping TypeName="beutyModel.View_inventario">
+              <MappingFragment StoreEntitySet="View_inventario">
+                <ScalarProperty Name="itbis" ColumnName="itbis" />
+                <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+                <ScalarProperty Name="idcategoria" ColumnName="idcategoria" />
+                <ScalarProperty Name="precio_salida" ColumnName="precio_salida" />
+                <ScalarProperty Name="precio_neto" ColumnName="precio_neto" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="Descripcion_Producto" ColumnName="Descripcion_Producto" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="idsuplidor" ColumnName="idsuplidor" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="Codigo_ID" ColumnName="Codigo_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_productos">
+            <EntityTypeMapping TypeName="beutyModel.View_productos">
+              <MappingFragment StoreEntitySet="View_productos">
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="precio_salida" ColumnName="precio_salida" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="salidas" ColumnName="salidas" />
+                <ScalarProperty Name="entredas" ColumnName="entredas" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="Producto_Id" ColumnName="Producto_Id" />
+                <ScalarProperty Name="Codigo_ID" ColumnName="Codigo_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_reporte_inventario">
+            <EntityTypeMapping TypeName="beutyModel.View_reporte_inventario">
+              <MappingFragment StoreEntitySet="View_reporte_inventario">
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="precio_salida" ColumnName="precio_salida" />
+                <ScalarProperty Name="precio_neto" ColumnName="precio_neto" />
+                <ScalarProperty Name="Descripcion_Producto" ColumnName="Descripcion_Producto" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="salidas" ColumnName="salidas" />
+                <ScalarProperty Name="entradas" ColumnName="entradas" />
+                <ScalarProperty Name="Producto_Id" ColumnName="Producto_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_stock">
+            <EntityTypeMapping TypeName="beutyModel.View_stock">
+              <MappingFragment StoreEntitySet="View_stock">
+                <ScalarProperty Name="existencia" ColumnName="existencia" />
+                <ScalarProperty Name="Producto_Id" ColumnName="Producto_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producto">
+            <EntityTypeMapping TypeName="beutyModel.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="itbis" ColumnName="itbis" />
+                <ScalarProperty Name="fecha_entrada" ColumnName="fecha_entrada" />
+                <ScalarProperty Name="impuesto" ColumnName="impuesto" />
+                <ScalarProperty Name="precio_salida" ColumnName="precio_salida" />
+                <ScalarProperty Name="precio_neto" ColumnName="precio_neto" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="Descripcion_Producto" ColumnName="Descripcion_Producto" />
+                <ScalarProperty Name="Suplidor" ColumnName="Suplidor" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="Codigo_ID" ColumnName="Codigo_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
