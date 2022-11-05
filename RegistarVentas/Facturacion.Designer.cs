@@ -1011,6 +1011,7 @@
             this.paneltaller.Name = "paneltaller";
             this.paneltaller.Size = new System.Drawing.Size(1088, 601);
             this.paneltaller.TabIndex = 0;
+            this.paneltaller.Visible = false;
             // 
             // label13
             // 

@@ -109,6 +109,30 @@ namespace RegistarVentas
 
             catch { }
         }
+        public void listarConsumo()
+        {
+            try
+            {
+                using (beutyEntities db = new beutyEntities())
+
+                {
+                    var lst = db.comprobantes.ToList().Where(c => c.estado == true && c.Tipo == "B02");
+                    foreach (var nfc in lst)
+                    {
+                        idcomprobantes = nfc.idomprobantes;
+                        tipocomprobantes = nfc.Tipo;
+                        ncf_inicio = Convert.ToInt32(nfc.secuencia);
+                        ncf_finalizar = Convert.ToInt32(nfc.secuencia_finalizar);
+                        fecha_comprobante = Convert.ToDateTime(nfc.fecha);
+
+                    }
+
+                }
+
+            }
+
+            catch { }
+        }
         public void ConsultarNcf()
         {
             try
@@ -234,6 +258,20 @@ namespace RegistarVentas
                        else if (cbo_factura.Text == "Factura Gubernamental")
                         {
                           
+                            if (oproducto.itbis == true)
+                            {
+                                dgvDescripcion_Producto.Rows.Add(codigo, nombre, detalle, 1, subtotal, resultado1, id, resultado, oproducto.precio_salida);
+                            }
+
+                            else
+                            {
+                                dgvDescripcion_Producto.Rows.Add(codigo, nombre, detalle, 1, subtotal, subtotal, id, "0.00", "0.00");
+                            }
+                        }
+
+                        else if (cbo_factura.Text == "Factura de Consumo")
+                        {
+
                             if (oproducto.itbis == true)
                             {
                                 dgvDescripcion_Producto.Rows.Add(codigo, nombre, detalle, 1, subtotal, resultado1, id, resultado, oproducto.precio_salida);
@@ -622,6 +660,17 @@ namespace RegistarVentas
             //agregar_registro_comprobantes();
            
         }
+
+        public void consumo()
+        {
+            ncf_inicio = 0;
+            ncf_finalizar = 0;
+            idcomprobantes = 0;
+            listarConsumo();
+            ConsultarNcf();
+            //agregar_registro_comprobantes();
+
+        }
         public void cobrar()
         {
             try
@@ -634,16 +683,16 @@ namespace RegistarVentas
                         addventa();
                         addetalle();
                         addinventario();
-                        if(cbo_factura.Text != "Factura de Consumo")
-                        {
+                        //if(cbo_factura.Text != "Factura de Consumo")
+                        //{
                         agregar_registro_comprobantes();
-                        }
-                        if(cboempleado.Text !="")
-                            {
-                        addtrabajo();
-                            }
-                        if (MessageBox.Show("Desea Imprimir Factura", "Mensaje", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        {
+                        //}
+                        //if(cboempleado.Text !="")
+                        //    {
+                        //addtrabajo();
+                        //    }
+                        //if (MessageBox.Show("Desea Imprimir Factura", "Mensaje", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        //{
                             caja();
 
                         if (idcliente != 2)
@@ -651,19 +700,23 @@ namespace RegistarVentas
                             imprimirfactura2();
                             imprimirfactura2();
                         }
-                        else if (idcliente==2)
+                     else  if (idcliente==2)
                         {
                             imprimirfactura();
                         }
-                            txtcod.Focus();
-                            limpiar();
-                }
-                        else
-                        {
-                            limpiar();
-                            txtcod.Focus();
-                    }
-                                     
+                    txtcod.Focus();
+                    limpiar();
+                    //}
+
+
+
+                    //    else
+                    //    {
+                    //        limpiar();
+                    //        txtcod.Focus();
+                    //}
+
+
                 }
                 else
                 {
@@ -945,6 +998,7 @@ namespace RegistarVentas
                 {
                     e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("FACTURA PARA CONSUMIDOR FINAL", font_28, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
+                    e.Graphics.DrawString("NCF: " + tipocomprobantes + secuencia_comprobantes.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                 }
                 else
@@ -953,7 +1007,7 @@ namespace RegistarVentas
                     e.Graphics.DrawString(cbo_factura.Text.ToUpper(), font_28, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("RNC: " + rncp.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("CLIENTE: " + clientep.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
-                    e.Graphics.DrawString("NCF: " + tipocomprobantes + secuencia_comprobantes.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 30, 300, 50));
+                    e.Graphics.DrawString("NCF: " + tipocomprobantes + secuencia_comprobantes.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                 }
                 e.Graphics.DrawString("DESCRIPCION        ITBIS            VALOR  ", font_10, Brushes.Black, new RectangleF(2, y += 20, 300, 50));
@@ -1037,6 +1091,7 @@ namespace RegistarVentas
                 // e.Graphics.DrawString("MESA: #" + global.numeromesag, font_10, Brushes.Black, new RectangleF(10, y += 15, 300, 50));
                     e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("FACTURA PARA CONSUMIDOR FINAL", font_28, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
+                    e.Graphics.DrawString("NCF: " + tipocomprobantes + secuencia_comprobantes.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("FACTURA A CREDITO", font_28, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("CLIENTE: " + lbClient.Text.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
@@ -1293,7 +1348,9 @@ namespace RegistarVentas
 
         private void txtcredito_Enter(object sender, EventArgs e)
         {
-            txtcredito.Clear();
+
+            txtcredito.Text = txt_total.Text;
+
         }
 
         private void txtcredito_Leave(object sender, EventArgs e)
@@ -1571,7 +1628,7 @@ namespace RegistarVentas
 
             }
 
-            if (cbo_factura.Text == "Factura Gubernamental")
+           else  if (cbo_factura.Text == "Factura Gubernamental")
             {
                 
                 gubernamental();
@@ -1579,6 +1636,18 @@ namespace RegistarVentas
                 {
                     formadd.ShowDialog();
                 }
+
+
+            }
+
+            else if (cbo_factura.Text == "Factura de Consumo")
+            {
+
+                consumo();
+                //if (lb_cliente.Text == "")
+                //{
+                //    formadd.ShowDialog();
+                //}
 
 
             }
@@ -1738,6 +1807,7 @@ namespace RegistarVentas
                 cbo_factura.Text = "Factura de Consumo";
                 secuencia_comprobantes = "";
                 tipocomprobantes = "";
+                consumo();
             }
            
         }

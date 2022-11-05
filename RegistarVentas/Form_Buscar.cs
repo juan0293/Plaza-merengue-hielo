@@ -253,5 +253,28 @@ namespace RegistarVentas
                 Close();
             }
         }
+
+        private void Form_Buscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                try
+                {
+
+                  
+                        foreach (DataGridViewRow row in dgvproducto.SelectedRows)
+                        {
+
+
+                            pasado(row.Cells[2].Value.ToString());
+
+                            //Close();
+                        }
+
+                    
+                }
+                catch { }
+            }
+        }
     }
 }

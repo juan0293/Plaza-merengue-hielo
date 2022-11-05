@@ -53,7 +53,6 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.codigoIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,6 +69,7 @@
             this.detalleVentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.suplidor1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvproducto)).BeginInit();
@@ -318,10 +318,6 @@
             this.Column5.Visible = false;
             this.Column5.Width = 150;
             // 
-            // productoBindingSource
-            // 
-            this.productoBindingSource.DataSource = typeof(RegistarVentas.Producto);
-            // 
             // codigoIDDataGridViewTextBoxColumn
             // 
             this.codigoIDDataGridViewTextBoxColumn.DataPropertyName = "Codigo_ID";
@@ -418,6 +414,10 @@
             this.suplidor1DataGridViewTextBoxColumn.HeaderText = "suplidor1";
             this.suplidor1DataGridViewTextBoxColumn.Name = "suplidor1DataGridViewTextBoxColumn";
             // 
+            // productoBindingSource
+            // 
+            this.productoBindingSource.DataSource = typeof(RegistarVentas.Producto);
+            // 
             // Form_Buscar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,6 +436,7 @@
             this.Controls.Add(this.rdb_nombre);
             this.Controls.Add(this.txtBuscar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(750, 565);
             this.MinimumSize = new System.Drawing.Size(750, 565);
@@ -444,6 +445,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Productos ";
             this.Load += new System.EventHandler(this.Form_Buscar_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_Buscar_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvproducto)).EndInit();
