@@ -999,6 +999,7 @@ namespace RegistarVentas
                     e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("FACTURA PARA CONSUMIDOR FINAL", font_28, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("NCF: " + tipocomprobantes + secuencia_comprobantes.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
+                    e.Graphics.DrawString("VENCIMIENTO: " + fecha_comprobante.ToShortDateString(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                 }
                 else
@@ -1008,6 +1009,7 @@ namespace RegistarVentas
                     e.Graphics.DrawString("RNC: " + rncp.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("CLIENTE: " + clientep.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("NCF: " + tipocomprobantes + secuencia_comprobantes.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
+                    e.Graphics.DrawString("VENCIMIENTO: " + fecha_comprobante.ToShortDateString().ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                 }
                 e.Graphics.DrawString("DESCRIPCION        ITBIS            VALOR  ", font_10, Brushes.Black, new RectangleF(2, y += 20, 300, 50));
@@ -1092,6 +1094,7 @@ namespace RegistarVentas
                     e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("FACTURA PARA CONSUMIDOR FINAL", font_28, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("NCF: " + tipocomprobantes + secuencia_comprobantes.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
+                   e.Graphics.DrawString("VENCIMIENTO: " + fecha_comprobante.ToShortDateString().ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("FACTURA A CREDITO", font_28, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("CLIENTE: " + lbClient.Text.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
