@@ -12,7 +12,7 @@ namespace RegistarVentas
 {
     public partial class Form_vista_cliente : Form
     {
-        public delegate void pasar(string id, string nombre);
+        public delegate void pasar(string id, string nombre, string rnc, string tipoComprobantes);
         public event pasar pasado;
         public Form_vista_cliente()
         {
@@ -97,7 +97,7 @@ namespace RegistarVentas
                 {
 
 
-                    pasado(row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString());
+                    pasado(row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString()+""+ row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), row.Cells[11].Value.ToString());
 
                     Close();
                 }
@@ -153,7 +153,7 @@ namespace RegistarVentas
                     {
 
 
-                        pasado(row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString());
+                        pasado(row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString() + "" + row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), row.Cells[11].Value.ToString());
 
                         Close();
                     }
@@ -161,6 +161,30 @@ namespace RegistarVentas
                 }
             }
             catch { }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvproducto.SelectedRows)
+            {
+
+
+                pasado(row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString() + "" + row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), row.Cells[11].Value.ToString());
+
+                Close();
+            }
+        }
+
+        private void Btn_editar_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvproducto.SelectedRows)
+            {
+                Clientes abrir = new Clientes();
+
+                abrir.idcliente = row.Cells[2].Value.ToString();
+                abrir.ShowDialog();
+
+            }
         }
     }
 }

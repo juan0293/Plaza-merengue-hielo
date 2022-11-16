@@ -886,6 +886,10 @@
     <None Include="Resources\delete_26px.png" />
     <None Include="Resources\save_24px1.png" />
     <None Include="Resources\close_sign_30px.png" />
+    <None Include="Resources\arrow_pointing_left_48px1.png" />
+    <None Include="Resources\close_sign_30px1.png" />
+    <None Include="Resources\add_24px1.png" />
+    <None Include="Resources\wrench_64px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr100.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -32,9 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbcedula = new System.Windows.Forms.Label();
             this.txt_cedula = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.lbProducto = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.lbprecioVenta = new System.Windows.Forms.Label();
             this.lbprecioCompra = new System.Windows.Forms.Label();
             this.txt_lugartrabajo = new System.Windows.Forms.TextBox();
@@ -47,10 +45,10 @@
             this.txt_apellido = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_limite_credito = new System.Windows.Forms.TextBox();
-            this.picatras = new System.Windows.Forms.PictureBox();
-            this.picbGuardar = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picatras)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbGuardar)).BeginInit();
+            this.cbo_factura = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btn_guardar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
@@ -69,9 +67,9 @@
             this.lbcedula.ForeColor = System.Drawing.Color.DimGray;
             this.lbcedula.Location = new System.Drawing.Point(18, 252);
             this.lbcedula.Name = "lbcedula";
-            this.lbcedula.Size = new System.Drawing.Size(64, 19);
+            this.lbcedula.Size = new System.Drawing.Size(103, 19);
             this.lbcedula.TabIndex = 134;
-            this.lbcedula.Text = "Cedula:";
+            this.lbcedula.Text = "RNC/Cedula:";
             // 
             // txt_cedula
             // 
@@ -83,18 +81,6 @@
             this.txt_cedula.TabIndex = 5;
             this.txt_cedula.Leave += new System.EventHandler(this.txt_cedula_Leave);
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label11.Location = new System.Drawing.Point(281, 368);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 22);
-            this.label11.TabIndex = 133;
-            this.label11.Text = "Atras";
-            // 
             // lbProducto
             // 
             this.lbProducto.AutoSize = true;
@@ -105,18 +91,6 @@
             this.lbProducto.Size = new System.Drawing.Size(190, 32);
             this.lbProducto.TabIndex = 131;
             this.lbProducto.Text = "Nuevo Cliente:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label2.Location = new System.Drawing.Point(184, 368);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 22);
-            this.label2.TabIndex = 129;
-            this.label2.Text = "Guardar";
             // 
             // lbprecioVenta
             // 
@@ -171,9 +145,10 @@
             // 
             // txtDetalle
             // 
+            this.txtDetalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDetalle.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDetalle.Location = new System.Drawing.Point(22, 173);
-            this.txtDetalle.MaxLength = 50;
+            this.txtDetalle.MaxLength = 100;
             this.txtDetalle.Name = "txtDetalle";
             this.txtDetalle.Size = new System.Drawing.Size(484, 26);
             this.txtDetalle.TabIndex = 2;
@@ -185,9 +160,9 @@
             this.label1.ForeColor = System.Drawing.Color.DimGray;
             this.label1.Location = new System.Drawing.Point(18, 100);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 19);
+            this.label1.Size = new System.Drawing.Size(157, 19);
             this.label1.TabIndex = 120;
-            this.label1.Text = "Nombre.:";
+            this.label1.Text = "Nombre del Cliente.:";
             // 
             // lbapellido
             // 
@@ -199,14 +174,16 @@
             this.lbapellido.Size = new System.Drawing.Size(86, 19);
             this.lbapellido.TabIndex = 119;
             this.lbapellido.Text = "Apellidos.:";
+            this.lbapellido.Visible = false;
             // 
             // txtnombre
             // 
+            this.txtnombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtnombre.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnombre.Location = new System.Drawing.Point(22, 122);
-            this.txtnombre.MaxLength = 20;
+            this.txtnombre.MaxLength = 100;
             this.txtnombre.Name = "txtnombre";
-            this.txtnombre.Size = new System.Drawing.Size(233, 26);
+            this.txtnombre.Size = new System.Drawing.Size(484, 26);
             this.txtnombre.TabIndex = 0;
             // 
             // txt_apellido
@@ -217,6 +194,7 @@
             this.txt_apellido.Name = "txt_apellido";
             this.txt_apellido.Size = new System.Drawing.Size(233, 26);
             this.txt_apellido.TabIndex = 1;
+            this.txt_apellido.Visible = false;
             // 
             // label3
             // 
@@ -238,26 +216,60 @@
             this.txt_limite_credito.TabIndex = 6;
             this.txt_limite_credito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_limite_credito_KeyPress);
             // 
-            // picatras
+            // cbo_factura
             // 
-            this.picatras.Image = ((System.Drawing.Image)(resources.GetObject("picatras.Image")));
-            this.picatras.Location = new System.Drawing.Point(284, 322);
-            this.picatras.Name = "picatras";
-            this.picatras.Size = new System.Drawing.Size(50, 43);
-            this.picatras.TabIndex = 132;
-            this.picatras.TabStop = false;
-            this.picatras.Click += new System.EventHandler(this.picatras_Click);
+            this.cbo_factura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo_factura.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbo_factura.FormattingEnabled = true;
+            this.cbo_factura.Items.AddRange(new object[] {
+            "Factura de Consumo",
+            "Factura Crédito fiscal",
+            "Factura Gubernamental"});
+            this.cbo_factura.Location = new System.Drawing.Point(18, 330);
+            this.cbo_factura.Name = "cbo_factura";
+            this.cbo_factura.Size = new System.Drawing.Size(233, 27);
+            this.cbo_factura.TabIndex = 137;
             // 
-            // picbGuardar
+            // label4
             // 
-            this.picbGuardar.Image = ((System.Drawing.Image)(resources.GetObject("picbGuardar.Image")));
-            this.picbGuardar.Location = new System.Drawing.Point(197, 322);
-            this.picbGuardar.Name = "picbGuardar";
-            this.picbGuardar.Size = new System.Drawing.Size(40, 40);
-            this.picbGuardar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.picbGuardar.TabIndex = 127;
-            this.picbGuardar.TabStop = false;
-            this.picbGuardar.Click += new System.EventHandler(this.picbGuardar_Click);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.Location = new System.Drawing.Point(18, 308);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(123, 19);
+            this.label4.TabIndex = 138;
+            this.label4.Text = "Posicion Fiscal:";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::RegistarVentas.Properties.Resources.close_sign_30px1;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(277, 394);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(165, 43);
+            this.button1.TabIndex = 142;
+            this.button1.Text = "Regresar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn_guardar
+            // 
+            this.btn_guardar.BackColor = System.Drawing.Color.White;
+            this.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_guardar.Image = global::RegistarVentas.Properties.Resources.save_24px;
+            this.btn_guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_guardar.Location = new System.Drawing.Point(90, 394);
+            this.btn_guardar.Name = "btn_guardar";
+            this.btn_guardar.Size = new System.Drawing.Size(165, 43);
+            this.btn_guardar.TabIndex = 141;
+            this.btn_guardar.Text = "Guardar";
+            this.btn_guardar.UseVisualStyleBackColor = false;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // Clientes
             // 
@@ -265,16 +277,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(528, 412);
+            this.ClientSize = new System.Drawing.Size(528, 457);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_guardar);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cbo_factura);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txt_limite_credito);
             this.Controls.Add(this.lbcedula);
             this.Controls.Add(this.txt_cedula);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.picatras);
             this.Controls.Add(this.lbProducto);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.picbGuardar);
             this.Controls.Add(this.lbprecioVenta);
             this.Controls.Add(this.lbprecioCompra);
             this.Controls.Add(this.txt_lugartrabajo);
@@ -290,14 +302,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(548, 455);
-            this.MinimumSize = new System.Drawing.Size(548, 455);
+            this.MaximumSize = new System.Drawing.Size(548, 500);
+            this.MinimumSize = new System.Drawing.Size(548, 500);
             this.Name = "Clientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clientes";
             this.Load += new System.EventHandler(this.Clientes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picatras)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbGuardar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,11 +318,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbcedula;
         public System.Windows.Forms.TextBox txt_cedula;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.PictureBox picatras;
         private System.Windows.Forms.Label lbProducto;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox picbGuardar;
         private System.Windows.Forms.Label lbprecioVenta;
         private System.Windows.Forms.Label lbprecioCompra;
         public System.Windows.Forms.TextBox txt_lugartrabajo;
@@ -325,5 +331,9 @@
         public System.Windows.Forms.TextBox txt_apellido;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox txt_limite_credito;
+        private System.Windows.Forms.ComboBox cbo_factura;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btn_guardar;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -361,16 +361,23 @@ namespace RegistarVentas
                                 e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                                 e.Graphics.DrawString("FACTURA PARA CONSUMIDOR FINAL", font_28, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                                 e.Graphics.DrawString("NCF: " + ofactura.ncf, font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
+                                e.Graphics.DrawString("VECIMIENTO: " +Convert.ToDateTime(ofactura.Fecha_vencimiemto_comprobante).ToShortDateString() , font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                                 e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                             }
                             else
                             {
                                 e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                                 e.Graphics.DrawString(ofactura.tipodocumento.ToUpper(), font_28, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
-                                e.Graphics.DrawString("RNC: " + ofactura.rnc.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
+                                e.Graphics.DrawString("RNC CLIENTE: " + ofactura.rnc.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                                 e.Graphics.DrawString("CLIENTE: " + ofactura.cliente.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                                 e.Graphics.DrawString("NCF: " + ofactura.ncf, font_10, Brushes.Black, new RectangleF(2, y += 30, 300, 50));
+                                e.Graphics.DrawString("VECIMIENTO: " + Convert.ToDateTime(ofactura.Fecha_vencimiemto_comprobante).ToShortDateString(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                                 e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
+                            }
+                            if (ofactura.credito > 0)
+                            {
+                                e.Graphics.DrawString("FACTURA A CREDITO", font_28, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
+
                             }
                             e.Graphics.DrawString("DESCRIPCION        ITBIS            VALOR  ", font_10, Brushes.Black, new RectangleF(10, y += 20, 300, 50));
                             e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(10, y += 12, 300, 50));

@@ -42,5 +42,6 @@ namespace RegistarVentas
         public string tipodocumento { get; set; }
         public Nullable<double> totalItbis { get; set; }
         public Nullable<double> itbis { get; set; }
+        public Nullable<System.DateTime> Fecha_vencimiemto_comprobante { get; set; }
     }
 }

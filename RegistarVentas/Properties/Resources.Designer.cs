@@ -83,9 +83,29 @@ namespace RegistarVentas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_24px1 {
+            get {
+                object obj = ResourceManager.GetObject("add_24px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow_pointing_left_48px {
             get {
                 object obj = ResourceManager.GetObject("arrow_pointing_left_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrow_pointing_left_48px1 {
+            get {
+                object obj = ResourceManager.GetObject("arrow_pointing_left_48px1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +186,16 @@ namespace RegistarVentas.Properties {
         internal static System.Drawing.Bitmap close_sign_30px {
             get {
                 object obj = ResourceManager.GetObject("close_sign_30px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap close_sign_30px1 {
+            get {
+                object obj = ResourceManager.GetObject("close_sign_30px1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -366,6 +396,16 @@ namespace RegistarVentas.Properties {
         internal static System.Drawing.Bitmap WhatsApp_Image_2019_09_03_at_9_272 {
             get {
                 object obj = ResourceManager.GetObject("WhatsApp Image 2019-09-03 at 9.272", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wrench_64px {
+            get {
+                object obj = ResourceManager.GetObject("wrench_64px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

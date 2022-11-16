@@ -19,7 +19,7 @@ namespace RegistarVentas
 
     {
         public int idmedico, idcomprobantes, numero_comprobantes, ncf_finalizar, ncf_inicio;
-        public string tipocomprobantes,clientep, rncp;
+        public string tipocomprobantes,clientep, rncp, rncCliente;
         public DateTime fecha_comprobante;
         public string secuencia_comprobantes;
         public double monto, resultado, efectivo, tarjeta, credito, descuento, subtotal, itebis, Totalitbis;
@@ -400,14 +400,15 @@ namespace RegistarVentas
                     venta.itebis = Totalitbis;
                     venta.devuelta = devuelta;
                     venta.estado = estado;
+                    venta.Fecha_vencimiemto_comprobante = fecha_comprobante;
                     
                     
                     venta.tipodocumento = cbo_factura.Text;
                     if(cbo_factura.Text != "Factura Consumo")
                     {
                         venta.ncf = tipocomprobantes + secuencia_comprobantes;
-                        venta.rnc = rncp;
-                        venta.cliente = clientep;
+                        venta.rnc = rncCliente;
+                        venta.cliente = lb_cliente.Text;
                 }
                  
                     venta.vendedor = Global.nombre;
@@ -540,7 +541,7 @@ namespace RegistarVentas
 
                     db.SaveChanges();
                 //MessageBox.Show("Venta registrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                lb_cliente.Text = "";
+               
                 eventodevuelta();
                 }
 
@@ -693,19 +694,24 @@ namespace RegistarVentas
                         //    }
                         //if (MessageBox.Show("Desea Imprimir Factura", "Mensaje", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         //{
-                            caja();
+                            //caja();
 
-                        if (idcliente != 2)
+                        if (lb_rnc.Text != "")
                         {
-                            imprimirfactura2();
-                            imprimirfactura2();
+                        imprimirfactura();
+                        imprimirfactura();
                         }
-                     else  if (idcliente==2)
+
+
+                        else
                         {
                             imprimirfactura();
                         }
+
+                    //TICKET();
                     txtcod.Focus();
                     limpiar();
+                    lb_cliente.Text = "";
                     //}
 
 
@@ -816,10 +822,16 @@ namespace RegistarVentas
         
 
         }
-        public void Formadd_pasado1(string id, string nombre)
+        public void Formadd_pasado1(string id, string nombre, string rnc , string tipoComprobantes)
         {
             idcliente =Convert.ToInt32(id);
-            lbClient.Text = nombre.ToString();   
+            lbClient.Text = nombre.ToString();
+            lb_rnc.Text = rnc;
+            lb_cliente.Text = nombre;
+
+            rncCliente = rnc;
+            cbo_factura.Text = tipoComprobantes;
+              
         }
         public void impfactura()
         {
@@ -1006,11 +1018,18 @@ namespace RegistarVentas
                 {
                     e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString(cbo_factura.Text.ToUpper(), font_28, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
-                    e.Graphics.DrawString("RNC: " + rncp.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
-                    e.Graphics.DrawString("CLIENTE: " + clientep.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
+                    e.Graphics.DrawString("RNC CLIENTE: " + rncCliente.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
+                    e.Graphics.DrawString("CLIENTE: " + lbClient.Text.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("NCF: " + tipocomprobantes + secuencia_comprobantes.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("VENCIMIENTO: " + fecha_comprobante.ToShortDateString().ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
+                   
+                  
+                }
+                if (Convert.ToDouble(txtcredito.Text) > 0)
+                {
+                    e.Graphics.DrawString("FACTURA A CREDITO", font_28, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
+
                 }
                 e.Graphics.DrawString("DESCRIPCION        ITBIS            VALOR  ", font_10, Brushes.Black, new RectangleF(2, y += 20, 300, 50));
                 e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(2, y += 12, 300, 50));
@@ -1094,7 +1113,8 @@ namespace RegistarVentas
                     e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("FACTURA PARA CONSUMIDOR FINAL", font_28, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("NCF: " + tipocomprobantes + secuencia_comprobantes.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
-                   e.Graphics.DrawString("VENCIMIENTO: " + fecha_comprobante.ToShortDateString().ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
+                e.Graphics.DrawString("RNC: " + rncCliente.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
+                e.Graphics.DrawString("VENCIMIENTO: " + fecha_comprobante.ToShortDateString().ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("----------------------------------------------------------------------------", font_8, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("FACTURA A CREDITO", font_28, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
                     e.Graphics.DrawString("CLIENTE: " + lbClient.Text.ToUpper(), font_10, Brushes.Black, new RectangleF(2, y += 15, 300, 50));
@@ -1611,10 +1631,10 @@ namespace RegistarVentas
         }
         private void cbo_factura_SelectedIndexChanged(object sender, EventArgs e)
         {
-         
-            
-            Form_agregar_cliente formadd = new Form_agregar_cliente();
-            formadd.pasado += Formadd_pasado3;
+
+
+            //Form_agregar_cliente formadd = new Form_agregar_cliente();
+            //formadd.pasado += Formadd_pasado3;
 
 
 
@@ -1623,10 +1643,10 @@ namespace RegistarVentas
                
                 comprobante_fiscal();
 
-                if(lb_cliente.Text =="")
-                {
-                    formadd.ShowDialog();
-                }
+                //if(lb_cliente.Text =="")
+                //{
+                //    formadd.ShowDialog();
+                //}
              
 
             }
@@ -1635,10 +1655,10 @@ namespace RegistarVentas
             {
                 
                 gubernamental();
-                if (lb_cliente.Text == "")
-                {
-                    formadd.ShowDialog();
-                }
+                //if (lb_cliente.Text == "")
+                //{
+                //    formadd.ShowDialog();
+                //}
 
 
             }
@@ -1823,6 +1843,12 @@ namespace RegistarVentas
         public void caja()
         {
             string pname = "CAJA";
+            myPrinters.SetDefaultPrinter(pname);
+        }
+
+        public void TICKET()
+        {
+            string pname = "TICKET";
             myPrinters.SetDefaultPrinter(pname);
         }
 

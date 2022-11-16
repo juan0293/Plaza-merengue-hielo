@@ -30,6 +30,8 @@ namespace RegistarVentas
         public string Cedula { get; set; }
         public double Limite_Credito { get; set; }
         public Nullable<bool> estatus { get; set; }
+        public string rnc { get; set; }
+        public string tipo_comprobantes { get; set; }
     
         public virtual ICollection<CXC> CXC { get; set; }
         public virtual ICollection<venta> venta { get; set; }

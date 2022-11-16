@@ -29,7 +29,7 @@
             <PropertyRef Name="ID_Cliente" />
           </Key>
           <Property Name="ID_Cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
           <Property Name="Apellidos" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Dirreccion" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Telefono" Type="varchar" MaxLength="12" Nullable="false" />
@@ -38,6 +38,8 @@
           <Property Name="Cedula" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="Limite_Credito" Type="float" Nullable="false" />
           <Property Name="estatus" Type="bit" />
+          <Property Name="rnc" Type="varchar" MaxLength="11" />
+          <Property Name="tipo_comprobantes" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="comprobantes">
           <Key>
@@ -283,6 +285,7 @@
           <Property Name="cliente" Type="varchar" MaxLength="100" />
           <Property Name="tipodocumento" Type="varchar" MaxLength="30" />
           <Property Name="totalItbis" Type="float" />
+          <Property Name="Fecha_vencimiemto_comprobante" Type="date" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'beuty.dbo.REPORTE_CXC' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -397,7 +400,7 @@ advertencia 6002: La tabla o vista 'beuty.dbo.View_factura' no tiene definida ni
             <PropertyRef Name="indtll" />
           </Key>
           <Property Name="Codigo_ID" Type="int" Nullable="false" />
-          <Property Name="Descripcion_Producto" Type="varchar" MaxLength="30" />
+          <Property Name="Descripcion_Producto" Type="varchar" MaxLength="100" />
           <Property Name="ID_Cliente" Type="int" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="ID_Metodo" Type="int" Nullable="false" />
@@ -424,6 +427,7 @@ advertencia 6002: La tabla o vista 'beuty.dbo.View_factura' no tiene definida ni
           <Property Name="tipodocumento" Type="varchar" MaxLength="30" />
           <Property Name="totalItbis" Type="float" />
           <Property Name="itbis" Type="float" />
+          <Property Name="Fecha_vencimiemto_comprobante" Type="date" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'beuty.dbo.View_ganancias' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -434,7 +438,7 @@ advertencia 6002: La tabla o vista 'beuty.dbo.View_ganancias' no tiene definida 
             <PropertyRef Name="idventa" />
           </Key>
           <Property Name="codigo" Type="varchar" MaxLength="30" />
-          <Property Name="Nombre" Type="varchar" MaxLength="20" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
           <Property Name="Codigo_ID" Type="int" Nullable="false" />
           <Property Name="Cantidad" Type="float" />
           <Property Name="precio_salida" Type="float" />
@@ -445,6 +449,7 @@ advertencia 6002: La tabla o vista 'beuty.dbo.View_ganancias' no tiene definida 
           <Property Name="idventa" Type="int" Nullable="false" />
           <Property Name="total_1" Type="float" />
           <Property Name="total_g" Type="float" />
+          <Property Name="cliente" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'beuty.dbo.View_inventario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -858,7 +863,8 @@ FROM [dbo].[View_descuento] AS [View_descuento]</DefiningQuery>
 [View_factura].[cliente] AS [cliente], 
 [View_factura].[tipodocumento] AS [tipodocumento], 
 [View_factura].[totalItbis] AS [totalItbis], 
-[View_factura].[itbis] AS [itbis]
+[View_factura].[itbis] AS [itbis], 
+[View_factura].[Fecha_vencimiemto_comprobante] AS [Fecha_vencimiemto_comprobante]
 FROM [dbo].[View_factura] AS [View_factura]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_ganancias" EntityType="Self.View_ganancias" store:Type="Views" store:Schema="dbo">
@@ -874,7 +880,8 @@ FROM [dbo].[View_factura] AS [View_factura]</DefiningQuery>
 [View_ganancias].[Ganancia] AS [Ganancia], 
 [View_ganancias].[idventa] AS [idventa], 
 [View_ganancias].[total_1] AS [total_1], 
-[View_ganancias].[total_g] AS [total_g]
+[View_ganancias].[total_g] AS [total_g], 
+[View_ganancias].[cliente] AS [cliente]
 FROM [dbo].[View_ganancias] AS [View_ganancias]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_inventario" EntityType="Self.View_inventario" store:Type="Views" store:Schema="dbo">
@@ -1145,7 +1152,7 @@ FROM [dbo].[View_stock] AS [View_stock]</DefiningQuery>
             <PropertyRef Name="ID_Cliente" />
           </Key>
           <Property Name="ID_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Dirreccion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Telefono" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
@@ -1156,6 +1163,8 @@ FROM [dbo].[View_stock] AS [View_stock]</DefiningQuery>
           <Property Name="estatus" Type="Boolean" />
           <NavigationProperty Name="CXC" Relationship="beutyModel.FK_CXC_Cliente1" FromRole="Cliente" ToRole="CXC" />
           <NavigationProperty Name="venta" Relationship="beutyModel.FK_venta_Cliente" FromRole="Cliente" ToRole="venta" />
+          <Property Name="rnc" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_comprobantes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="comprobantes">
           <Key>
@@ -1414,6 +1423,7 @@ FROM [dbo].[View_stock] AS [View_stock]</DefiningQuery>
           <NavigationProperty Name="login" Relationship="beutyModel.FK_venta_login" FromRole="venta" ToRole="login" />
           <NavigationProperty Name="Metodo_de_Pago" Relationship="beutyModel.FK_venta_Metodo_de_Pago" FromRole="venta" ToRole="Metodo_de_Pago" />
           <NavigationProperty Name="reparacion" Relationship="beutyModel.FK_reparacion_venta" FromRole="venta" ToRole="reparacion" />
+          <Property Name="Fecha_vencimiemto_comprobante" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="REPORTE_CXC">
           <Key>
@@ -1516,7 +1526,7 @@ FROM [dbo].[View_stock] AS [View_stock]</DefiningQuery>
             <PropertyRef Name="indtll" />
           </Key>
           <Property Name="Codigo_ID" Type="Int32" Nullable="false" />
-          <Property Name="Descripcion_Producto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion_Producto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ID_Cliente" Type="Int32" Nullable="false" />
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="ID_Metodo" Type="Int32" Nullable="false" />
@@ -1543,6 +1553,7 @@ FROM [dbo].[View_stock] AS [View_stock]</DefiningQuery>
           <Property Name="tipodocumento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="totalItbis" Type="Double" />
           <Property Name="itbis" Type="Double" />
+          <Property Name="Fecha_vencimiemto_comprobante" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="View_ganancias">
           <Key>
@@ -1551,7 +1562,7 @@ FROM [dbo].[View_stock] AS [View_stock]</DefiningQuery>
             <PropertyRef Name="idventa" />
           </Key>
           <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Codigo_ID" Type="Int32" Nullable="false" />
           <Property Name="Cantidad" Type="Double" />
           <Property Name="precio_salida" Type="Double" />
@@ -1562,6 +1573,7 @@ FROM [dbo].[View_stock] AS [View_stock]</DefiningQuery>
           <Property Name="idventa" Type="Int32" Nullable="false" />
           <Property Name="total_1" Type="Double" />
           <Property Name="total_g" Type="Double" />
+          <Property Name="cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="View_inventario">
           <Key>
@@ -1898,6 +1910,8 @@ FROM [dbo].[View_stock] AS [View_stock]</DefiningQuery>
           <EntitySetMapping Name="Cliente">
             <EntityTypeMapping TypeName="beutyModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="tipo_comprobantes" ColumnName="tipo_comprobantes" />
+                <ScalarProperty Name="rnc" ColumnName="rnc" />
                 <ScalarProperty Name="estatus" ColumnName="estatus" />
                 <ScalarProperty Name="Limite_Credito" ColumnName="Limite_Credito" />
                 <ScalarProperty Name="Cedula" ColumnName="Cedula" />
@@ -2135,6 +2149,7 @@ FROM [dbo].[View_stock] AS [View_stock]</DefiningQuery>
           <EntitySetMapping Name="venta">
             <EntityTypeMapping TypeName="beutyModel.venta">
               <MappingFragment StoreEntitySet="venta">
+                <ScalarProperty Name="Fecha_vencimiemto_comprobante" ColumnName="Fecha_vencimiemto_comprobante" />
                 <ScalarProperty Name="totalItbis" ColumnName="totalItbis" />
                 <ScalarProperty Name="tipodocumento" ColumnName="tipodocumento" />
                 <ScalarProperty Name="cliente" ColumnName="cliente" />
@@ -2238,6 +2253,7 @@ FROM [dbo].[View_stock] AS [View_stock]</DefiningQuery>
           <EntitySetMapping Name="View_factura">
             <EntityTypeMapping TypeName="beutyModel.View_factura">
               <MappingFragment StoreEntitySet="View_factura">
+                <ScalarProperty Name="Fecha_vencimiemto_comprobante" ColumnName="Fecha_vencimiemto_comprobante" />
                 <ScalarProperty Name="itbis" ColumnName="itbis" />
                 <ScalarProperty Name="totalItbis" ColumnName="totalItbis" />
                 <ScalarProperty Name="tipodocumento" ColumnName="tipodocumento" />
@@ -2272,6 +2288,7 @@ FROM [dbo].[View_stock] AS [View_stock]</DefiningQuery>
           <EntitySetMapping Name="View_ganancias">
             <EntityTypeMapping TypeName="beutyModel.View_ganancias">
               <MappingFragment StoreEntitySet="View_ganancias">
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
                 <ScalarProperty Name="total_g" ColumnName="total_g" />
                 <ScalarProperty Name="total_1" ColumnName="total_1" />
                 <ScalarProperty Name="idventa" ColumnName="idventa" />

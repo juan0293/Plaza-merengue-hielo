@@ -26,5 +26,6 @@ namespace RegistarVentas
         public int idventa { get; set; }
         public Nullable<double> total_1 { get; set; }
         public Nullable<double> total_g { get; set; }
+        public string cliente { get; set; }
     }
 }

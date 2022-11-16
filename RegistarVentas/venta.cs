@@ -41,6 +41,7 @@ namespace RegistarVentas
         public string cliente { get; set; }
         public string tipodocumento { get; set; }
         public Nullable<double> totalItbis { get; set; }
+        public Nullable<System.DateTime> Fecha_vencimiemto_comprobante { get; set; }
     
         public virtual Cliente Cliente1 { get; set; }
         public virtual ICollection<CXC> CXC { get; set; }

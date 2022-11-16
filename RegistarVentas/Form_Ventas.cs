@@ -39,6 +39,40 @@ namespace RegistarVentas
             catch { }
         }
 
+        public void listarreporte_cliente()
+        {
+            try
+            {
+                DateTime startDate = Convert.ToDateTime(dtpDateinicio.Text);
+                DateTime endDate = Convert.ToDateTime(dtpDatefin.Text);
+                using (beutyEntities db = new beutyEntities())
+
+                {
+
+                    viewgananciasBindingSource.DataSource = db.View_ganancias.ToList().Where(f => f.fecha >= startDate && f.fecha <= endDate && f.cliente == cbo_cliente.Text);
+
+                }
+                cbo_cliente.SelectedIndex = -1;
+            }
+            catch { }
+        }
+        public void listarCombo()
+        {
+            try
+            {
+                //DateTime startDate = Convert.ToDateTime(dtpDateinicio.Text);
+                //DateTime endDate = Convert.ToDateTime(dtpDatefin.Text);
+                using (beutyEntities db = new beutyEntities())
+
+                {
+                    clienteBindingSource.Clear();
+                    clienteBindingSource.DataSource = db.Cliente.ToList();
+
+                }
+            }
+            catch { }
+        }
+
         public void listar_descuento()
         {
             try
@@ -142,9 +176,20 @@ namespace RegistarVentas
 
         private void picActualizar_Click(object sender, EventArgs e)
         {
-            listarreporte();
-            listar_descuento();
-            operacion();
+            if(cbo_cliente.Text =="")
+            {
+                listarreporte();
+                listar_descuento();
+                operacion();
+
+            }
+            else
+            {
+                listarreporte_cliente();
+                listar_descuento();
+                operacion();
+            }
+        
 
 
         }
@@ -163,6 +208,11 @@ namespace RegistarVentas
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbo_cliente_DropDown(object sender, EventArgs e)
+        {
+            listarCombo();
         }
     }
 }

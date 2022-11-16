@@ -64,6 +64,8 @@ namespace RegistarVentas
                     ocliente.Telefono = txt_telefono.Text;
                     ocliente.Lugar_De_trabajo= txt_lugartrabajo.Text;
                     ocliente.Cedula = txt_cedula.Text;
+                    ocliente.rnc = txt_cedula.Text;
+                    ocliente.tipo_comprobantes = cbo_factura.Text;
                     ocliente.Limite_Credito =Convert.ToDouble(txt_limite_credito.Text);
                     ocliente.estatus = true;         
 
@@ -93,6 +95,9 @@ namespace RegistarVentas
                     ocliente.Telefono = txt_telefono.Text;
                     ocliente.Lugar_De_trabajo = txt_lugartrabajo.Text;
                     ocliente.Cedula = txt_cedula.Text.Trim();
+                    ocliente.rnc = txt_cedula.Text.Trim();
+                    ocliente.tipo_comprobantes = cbo_factura.Text;
+
                     ocliente.Limite_Credito = Convert.ToDouble(txt_limite_credito.Text);
                     db.Entry(ocliente).State = EntityState.Modified;
                     db.SaveChanges();
@@ -204,18 +209,47 @@ namespace RegistarVentas
 
         private void picbGuardar_Click(object sender, EventArgs e)
         {
+          
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void picatras_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void txt_cedula_Leave(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
             if (idcliente == null)
             {
-                if(txt_cedula.Text =="")
+                if (txt_cedula.Text == "")
                 {
                     MessageBox.Show("Por favor completar el campo Cedula", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+             
+                else if (txtnombre.Text == "")
+                {
+                    MessageBox.Show("Por favor completar el campo Nombre", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (cbo_factura.Text == "")
+                {
+                    MessageBox.Show("Por favor completar el campo Posicion Fiscal", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     addcliente();
                     Close();
                 }
-              
+
             }
             else
             {
@@ -233,17 +267,7 @@ namespace RegistarVentas
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void picatras_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void txt_cedula_Leave(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             verificar();
         }

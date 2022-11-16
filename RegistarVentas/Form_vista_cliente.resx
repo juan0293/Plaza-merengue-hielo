@@ -118,6 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAnhJREFUaEPt
+        mL1rFEEYxjda2PgRzezGj0ZEsRQRsVALay0sTCnIZXcSA/kPBFOK2FiJ/4KNhaCYmJ1dk0LBym/S2IgS
+        xEILjQqe757PwvIy5Hb3dm5uYX7wEO69mWefN8l83HkOh8PRUqbubQ1CdQuv2sX4FTXuR8kiqYtSexCd
+        +CgFX8vCt64BIZNzQZR8zcO3qgEKPkeB/xTDt6MBWqx+mNzmwXNh1GiyZ/7ZTgr/SBc8F4aOHntn1UEK
+        +JIHbljrvkxe0c/HfqSuBTPxMTx+MOi3fpZMvxQeNEy99UN1yfO6Y4hTDVqsl8lkg5kOXZTj+WRn5RBi
+        lWChu4X+jDdo8l9uZlHfhIzPI2EfqAHa529qTGxrw5fqDFL2hxbVFE36wUysqnd4zqRHELE/kzI+RQv5
+        s87MntJVxCvHxOzyAZr0Qm9mSb3dqQL+nNououS+1gzC0FrsurqyeyJKTgYyuUtev7k3F2V5jalV6I4F
+        Ui3oDDNh0MCIMD5Bfp+4P1ftw47+nTq0mH5xQ7zdCP50elz3jKJEmF7H8OoE0/FpMlkvGuKtxtjs4piJ
+        GlzG0HpkpyOZvMkNUW6M3g5YCKzROwytj+is7iCjB5khSo0Bb13wXN8xdEDwOQGvGqN3hdcHz9VQA4bA
+        OtMF/y+ZvMfQ0URE6R1tcGjgRWwS49uoSYwfZCY4PP9wm5GrBJ+IsrF6WdGV5iIsNodPRNlyAxWu03wy
+        yjYb+Cjk032Y3h9ugLKtBqp9pMzgJijbaOBDtrViWnm4EcpDbYB2nCW6F+3HlGpwM5SH0kB20xWRuoCh
+        9eCmKJuo/ySt0en6pNGvFh0Oh8NRDs/7B+my+WDvUD/zAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAABWJJREFUWEfd
@@ -179,7 +195,7 @@
   <metadata name="agregar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="dataGridViewCellStyle9.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="dataGridViewCellStyle2.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
@@ -199,7 +215,7 @@
   <metadata name="editar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="dataGridViewCellStyle10.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="dataGridViewCellStyle3.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
@@ -228,10 +244,13 @@
         AAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="tipo_comprobantes.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="clienteBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="dataGridViewCellStyle13.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="dataGridViewCellStyle6.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
@@ -248,7 +267,7 @@
         hIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEAAA=
 </value>
   </data>
-  <data name="dataGridViewCellStyle14.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="dataGridViewCellStyle7.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
@@ -275,22 +294,6 @@
         pT7013NRHbgSDj/AeF1/HOYve9ffS6U6cUUh/GFW860pisc5m8lltefvsScxAy/+MK+6HL8TNajXzVPx
         YW1jOO8KJ3GPTKFffxdxVhdJ0p9B9tiWrxb3C/bY6p7EYq/cluMCPrD8t+CejDJZnf8AJrJVyt+0owAA
         AAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAnhJREFUaEPt
-        mL1rFEEYxjda2PgRzezGj0ZEsRQRsVALay0sTCnIZXcSA/kPBFOK2FiJ/4KNhaCYmJ1dk0LBym/S2IgS
-        xEILjQqe757PwvIy5Hb3dm5uYX7wEO69mWefN8l83HkOh8PRUqbubQ1CdQuv2sX4FTXuR8kiqYtSexCd
-        +CgFX8vCt64BIZNzQZR8zcO3qgEKPkeB/xTDt6MBWqx+mNzmwXNh1GiyZ/7ZTgr/SBc8F4aOHntn1UEK
-        +JIHbljrvkxe0c/HfqSuBTPxMTx+MOi3fpZMvxQeNEy99UN1yfO6Y4hTDVqsl8lkg5kOXZTj+WRn5RBi
-        lWChu4X+jDdo8l9uZlHfhIzPI2EfqAHa529qTGxrw5fqDFL2hxbVFE36wUysqnd4zqRHELE/kzI+RQv5
-        s87MntJVxCvHxOzyAZr0Qm9mSb3dqQL+nNououS+1gzC0FrsurqyeyJKTgYyuUtev7k3F2V5jalV6I4F
-        Ui3oDDNh0MCIMD5Bfp+4P1ftw47+nTq0mH5xQ7zdCP50elz3jKJEmF7H8OoE0/FpMlkvGuKtxtjs4piJ
-        GlzG0HpkpyOZvMkNUW6M3g5YCKzROwytj+is7iCjB5khSo0Bb13wXN8xdEDwOQGvGqN3hdcHz9VQA4bA
-        OtMF/y+ZvMfQ0URE6R1tcGjgRWwS49uoSYwfZCY4PP9wm5GrBJ+IsrF6WdGV5iIsNodPRNlyAxWu03wy
-        yjYb+Cjk032Y3h9ugLKtBqp9pMzgJijbaOBDtrViWnm4EcpDbYB2nCW6F+3HlGpwM5SH0kB20xWRuoCh
-        9eCmKJuo/ySt0en6pNGvFh0Oh8NRDs/7B+my+WDvUD/zAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="pictureBox4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

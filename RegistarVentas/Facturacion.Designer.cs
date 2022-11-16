@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Facturar));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -50,6 +49,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Facturar));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Txt_CodigoVf = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -61,7 +61,6 @@
             this.btnTerminar = new System.Windows.Forms.Button();
             this.lbUsuario = new System.Windows.Forms.Label();
             this.grbComandos = new System.Windows.Forms.GroupBox();
-            this.picFacturar = new System.Windows.Forms.PictureBox();
             this.txtcod = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.dgvDescripcion_Producto = new System.Windows.Forms.DataGridView();
@@ -85,15 +84,11 @@
             this.label15 = new System.Windows.Forms.Label();
             this.lbhora = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.btn_minimizar = new System.Windows.Forms.PictureBox();
             this.lb_usuario = new System.Windows.Forms.Label();
-            this.btn_close = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.btn_slide = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.picguardar = new System.Windows.Forms.PictureBox();
             this.txtcredito = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_descuento = new System.Windows.Forms.TextBox();
@@ -111,13 +106,6 @@
             this.hora = new System.Windows.Forms.Timer(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem31 = new System.Windows.Forms.ToolStripMenuItem();
-            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cotizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cotizacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cuadreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem32 = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.paneltaller = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
@@ -138,22 +126,34 @@
             this.button4 = new System.Windows.Forms.Button();
             this.cbo_factura = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.piclogo = new System.Windows.Forms.PictureBox();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.btn_limpiar = new System.Windows.Forms.Button();
+            this.piclogo = new System.Windows.Forms.PictureBox();
+            this.picguardar = new System.Windows.Forms.PictureBox();
+            this.toolStripMenuItem31 = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cotizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cotizacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cuadreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem32 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_minimizar = new System.Windows.Forms.PictureBox();
+            this.btn_close = new System.Windows.Forms.PictureBox();
+            this.btn_slide = new System.Windows.Forms.PictureBox();
+            this.picFacturar = new System.Windows.Forms.PictureBox();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.grbComandos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picFacturar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDescripcion_Producto)).BeginInit();
             this.panel_titulo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_close)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_slide)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picguardar)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.paneltaller.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvtaller)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.piclogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picguardar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_close)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_slide)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFacturar)).BeginInit();
             this.SuspendLayout();
             // 
             // Txt_CodigoVf
@@ -270,18 +270,6 @@
             this.grbComandos.Size = new System.Drawing.Size(323, 325);
             this.grbComandos.TabIndex = 18;
             this.grbComandos.TabStop = false;
-            // 
-            // picFacturar
-            // 
-            this.picFacturar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picFacturar.BackgroundImage")));
-            this.picFacturar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picFacturar.Image = ((System.Drawing.Image)(resources.GetObject("picFacturar.Image")));
-            this.picFacturar.Location = new System.Drawing.Point(102, 163);
-            this.picFacturar.Name = "picFacturar";
-            this.picFacturar.Size = new System.Drawing.Size(136, 141);
-            this.picFacturar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picFacturar.TabIndex = 8;
-            this.picFacturar.TabStop = false;
             // 
             // txtcod
             // 
@@ -594,21 +582,6 @@
             this.label14.TabIndex = 47;
             this.label14.Text = "Hora:";
             // 
-            // btn_minimizar
-            // 
-            this.btn_minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_minimizar.BackColor = System.Drawing.Color.Transparent;
-            this.btn_minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_minimizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_minimizar.Image")));
-            this.btn_minimizar.Location = new System.Drawing.Point(1221, 7);
-            this.btn_minimizar.Name = "btn_minimizar";
-            this.btn_minimizar.Size = new System.Drawing.Size(35, 35);
-            this.btn_minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_minimizar.TabIndex = 1;
-            this.btn_minimizar.TabStop = false;
-            this.btn_minimizar.Visible = false;
-            this.btn_minimizar.Click += new System.EventHandler(this.btn_minimizar_Click);
-            // 
             // lb_usuario
             // 
             this.lb_usuario.AutoSize = true;
@@ -622,21 +595,6 @@
             this.lb_usuario.Text = "Atendido Por:";
             this.lb_usuario.Click += new System.EventHandler(this.lb_usuario_Click);
             // 
-            // btn_close
-            // 
-            this.btn_close.BackColor = System.Drawing.Color.Transparent;
-            this.btn_close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_close.Image = ((System.Drawing.Image)(resources.GetObject("btn_close.Image")));
-            this.btn_close.Location = new System.Drawing.Point(1262, 0);
-            this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(35, 50);
-            this.btn_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_close.TabIndex = 1;
-            this.btn_close.TabStop = false;
-            this.btn_close.Visible = false;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -649,19 +607,6 @@
             this.label11.TabIndex = 45;
             this.label11.Text = "Atendido Por:";
             this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
-            // btn_slide
-            // 
-            this.btn_slide.BackColor = System.Drawing.Color.Transparent;
-            this.btn_slide.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_slide.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_slide.Image = ((System.Drawing.Image)(resources.GetObject("btn_slide.Image")));
-            this.btn_slide.Location = new System.Drawing.Point(0, 0);
-            this.btn_slide.Name = "btn_slide";
-            this.btn_slide.Size = new System.Drawing.Size(63, 50);
-            this.btn_slide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btn_slide.TabIndex = 0;
-            this.btn_slide.TabStop = false;
             // 
             // button2
             // 
@@ -711,17 +656,6 @@
             this.label8.Size = new System.Drawing.Size(66, 22);
             this.label8.TabIndex = 9;
             this.label8.Text = "Cobrar";
-            // 
-            // picguardar
-            // 
-            this.picguardar.Image = ((System.Drawing.Image)(resources.GetObject("picguardar.Image")));
-            this.picguardar.Location = new System.Drawing.Point(59, 269);
-            this.picguardar.Name = "picguardar";
-            this.picguardar.Size = new System.Drawing.Size(71, 64);
-            this.picguardar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picguardar.TabIndex = 8;
-            this.picguardar.TabStop = false;
-            this.picguardar.Click += new System.EventHandler(this.picguardar_Click);
             // 
             // txtcredito
             // 
@@ -833,6 +767,7 @@
             this.lbClient.Size = new System.Drawing.Size(54, 22);
             this.lbClient.TabIndex = 41;
             this.lbClient.Text = "0001";
+            this.lbClient.Visible = false;
             // 
             // label9
             // 
@@ -917,71 +852,6 @@
             this.menuStrip.TabIndex = 39;
             this.menuStrip.Text = "menuStrip2";
             this.menuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip_ItemClicked);
-            // 
-            // toolStripMenuItem31
-            // 
-            this.toolStripMenuItem31.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clientesToolStripMenuItem,
-            this.pagosToolStripMenuItem,
-            this.cotizarToolStripMenuItem,
-            this.cotizacionesToolStripMenuItem,
-            this.cuadreToolStripMenuItem});
-            this.toolStripMenuItem31.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem31.ForeColor = System.Drawing.Color.DimGray;
-            this.toolStripMenuItem31.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem31.Image")));
-            this.toolStripMenuItem31.Name = "toolStripMenuItem31";
-            this.toolStripMenuItem31.Size = new System.Drawing.Size(146, 44);
-            this.toolStripMenuItem31.Text = "Opciones";
-            this.toolStripMenuItem31.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.toolStripMenuItem31.Click += new System.EventHandler(this.toolStripMenuItem31_Click);
-            // 
-            // clientesToolStripMenuItem
-            // 
-            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.clientesToolStripMenuItem.Text = "Clientes";
-            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
-            // 
-            // pagosToolStripMenuItem
-            // 
-            this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
-            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.pagosToolStripMenuItem.Text = "Pagos";
-            this.pagosToolStripMenuItem.Visible = false;
-            this.pagosToolStripMenuItem.Click += new System.EventHandler(this.pagosToolStripMenuItem_Click);
-            // 
-            // cotizarToolStripMenuItem
-            // 
-            this.cotizarToolStripMenuItem.Name = "cotizarToolStripMenuItem";
-            this.cotizarToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.cotizarToolStripMenuItem.Text = "Cotizar";
-            this.cotizarToolStripMenuItem.Click += new System.EventHandler(this.cotizarToolStripMenuItem_Click);
-            // 
-            // cotizacionesToolStripMenuItem
-            // 
-            this.cotizacionesToolStripMenuItem.Name = "cotizacionesToolStripMenuItem";
-            this.cotizacionesToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.cotizacionesToolStripMenuItem.Text = "Cotizaciones";
-            this.cotizacionesToolStripMenuItem.Click += new System.EventHandler(this.cotizacionesToolStripMenuItem_Click);
-            // 
-            // cuadreToolStripMenuItem
-            // 
-            this.cuadreToolStripMenuItem.Name = "cuadreToolStripMenuItem";
-            this.cuadreToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.cuadreToolStripMenuItem.Text = "Cuadre";
-            this.cuadreToolStripMenuItem.Click += new System.EventHandler(this.cuadreToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem32
-            // 
-            this.toolStripMenuItem32.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripMenuItem32.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem32.ForeColor = System.Drawing.Color.DimGray;
-            this.toolStripMenuItem32.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem32.Image")));
-            this.toolStripMenuItem32.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripMenuItem32.Name = "toolStripMenuItem32";
-            this.toolStripMenuItem32.Size = new System.Drawing.Size(147, 44);
-            this.toolStripMenuItem32.Text = "Producto";
-            this.toolStripMenuItem32.Click += new System.EventHandler(this.toolStripMenuItem32_Click);
             // 
             // button1
             // 
@@ -1268,32 +1138,6 @@
             this.label16.TabIndex = 105;
             this.label16.Text = "Documento:";
             // 
-            // piclogo
-            // 
-            this.piclogo.BackColor = System.Drawing.Color.Transparent;
-            this.piclogo.Image = ((System.Drawing.Image)(resources.GetObject("piclogo.Image")));
-            this.piclogo.Location = new System.Drawing.Point(649, 339);
-            this.piclogo.MinimumSize = new System.Drawing.Size(50, 50);
-            this.piclogo.Name = "piclogo";
-            this.piclogo.Size = new System.Drawing.Size(50, 50);
-            this.piclogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.piclogo.TabIndex = 101;
-            this.piclogo.TabStop = false;
-            this.piclogo.Visible = false;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.NullValue = null;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle21;
-            this.dataGridViewImageColumn1.HeaderText = "Eliminar";
-            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // btn_limpiar
             // 
             this.btn_limpiar.BackColor = System.Drawing.Color.White;
@@ -1312,6 +1156,163 @@
             this.btn_limpiar.Text = "Eliminar Todo";
             this.btn_limpiar.UseVisualStyleBackColor = false;
             this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
+            // 
+            // piclogo
+            // 
+            this.piclogo.BackColor = System.Drawing.Color.Transparent;
+            this.piclogo.Image = ((System.Drawing.Image)(resources.GetObject("piclogo.Image")));
+            this.piclogo.Location = new System.Drawing.Point(649, 339);
+            this.piclogo.MinimumSize = new System.Drawing.Size(50, 50);
+            this.piclogo.Name = "piclogo";
+            this.piclogo.Size = new System.Drawing.Size(50, 50);
+            this.piclogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.piclogo.TabIndex = 101;
+            this.piclogo.TabStop = false;
+            this.piclogo.Visible = false;
+            // 
+            // picguardar
+            // 
+            this.picguardar.Image = ((System.Drawing.Image)(resources.GetObject("picguardar.Image")));
+            this.picguardar.Location = new System.Drawing.Point(59, 269);
+            this.picguardar.Name = "picguardar";
+            this.picguardar.Size = new System.Drawing.Size(71, 64);
+            this.picguardar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picguardar.TabIndex = 8;
+            this.picguardar.TabStop = false;
+            this.picguardar.Click += new System.EventHandler(this.picguardar_Click);
+            // 
+            // toolStripMenuItem31
+            // 
+            this.toolStripMenuItem31.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clientesToolStripMenuItem,
+            this.pagosToolStripMenuItem,
+            this.cotizarToolStripMenuItem,
+            this.cotizacionesToolStripMenuItem,
+            this.cuadreToolStripMenuItem});
+            this.toolStripMenuItem31.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem31.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripMenuItem31.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem31.Image")));
+            this.toolStripMenuItem31.Name = "toolStripMenuItem31";
+            this.toolStripMenuItem31.Size = new System.Drawing.Size(146, 44);
+            this.toolStripMenuItem31.Text = "Opciones";
+            this.toolStripMenuItem31.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.toolStripMenuItem31.Click += new System.EventHandler(this.toolStripMenuItem31_Click);
+            // 
+            // clientesToolStripMenuItem
+            // 
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
+            // 
+            // pagosToolStripMenuItem
+            // 
+            this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
+            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.pagosToolStripMenuItem.Text = "Pagos";
+            this.pagosToolStripMenuItem.Visible = false;
+            this.pagosToolStripMenuItem.Click += new System.EventHandler(this.pagosToolStripMenuItem_Click);
+            // 
+            // cotizarToolStripMenuItem
+            // 
+            this.cotizarToolStripMenuItem.Name = "cotizarToolStripMenuItem";
+            this.cotizarToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.cotizarToolStripMenuItem.Text = "Cotizar";
+            this.cotizarToolStripMenuItem.Click += new System.EventHandler(this.cotizarToolStripMenuItem_Click);
+            // 
+            // cotizacionesToolStripMenuItem
+            // 
+            this.cotizacionesToolStripMenuItem.Name = "cotizacionesToolStripMenuItem";
+            this.cotizacionesToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.cotizacionesToolStripMenuItem.Text = "Cotizaciones";
+            this.cotizacionesToolStripMenuItem.Click += new System.EventHandler(this.cotizacionesToolStripMenuItem_Click);
+            // 
+            // cuadreToolStripMenuItem
+            // 
+            this.cuadreToolStripMenuItem.Name = "cuadreToolStripMenuItem";
+            this.cuadreToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.cuadreToolStripMenuItem.Text = "Cuadre";
+            this.cuadreToolStripMenuItem.Click += new System.EventHandler(this.cuadreToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem32
+            // 
+            this.toolStripMenuItem32.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripMenuItem32.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem32.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripMenuItem32.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem32.Image")));
+            this.toolStripMenuItem32.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripMenuItem32.Name = "toolStripMenuItem32";
+            this.toolStripMenuItem32.Size = new System.Drawing.Size(147, 44);
+            this.toolStripMenuItem32.Text = "Producto";
+            this.toolStripMenuItem32.Click += new System.EventHandler(this.toolStripMenuItem32_Click);
+            // 
+            // btn_minimizar
+            // 
+            this.btn_minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_minimizar.BackColor = System.Drawing.Color.Transparent;
+            this.btn_minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_minimizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_minimizar.Image")));
+            this.btn_minimizar.Location = new System.Drawing.Point(1221, 7);
+            this.btn_minimizar.Name = "btn_minimizar";
+            this.btn_minimizar.Size = new System.Drawing.Size(35, 35);
+            this.btn_minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_minimizar.TabIndex = 1;
+            this.btn_minimizar.TabStop = false;
+            this.btn_minimizar.Visible = false;
+            this.btn_minimizar.Click += new System.EventHandler(this.btn_minimizar_Click);
+            // 
+            // btn_close
+            // 
+            this.btn_close.BackColor = System.Drawing.Color.Transparent;
+            this.btn_close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_close.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_close.Image = ((System.Drawing.Image)(resources.GetObject("btn_close.Image")));
+            this.btn_close.Location = new System.Drawing.Point(1262, 0);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(35, 50);
+            this.btn_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_close.TabIndex = 1;
+            this.btn_close.TabStop = false;
+            this.btn_close.Visible = false;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
+            // 
+            // btn_slide
+            // 
+            this.btn_slide.BackColor = System.Drawing.Color.Transparent;
+            this.btn_slide.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_slide.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_slide.Image = ((System.Drawing.Image)(resources.GetObject("btn_slide.Image")));
+            this.btn_slide.Location = new System.Drawing.Point(0, 0);
+            this.btn_slide.Name = "btn_slide";
+            this.btn_slide.Size = new System.Drawing.Size(63, 50);
+            this.btn_slide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_slide.TabIndex = 0;
+            this.btn_slide.TabStop = false;
+            // 
+            // picFacturar
+            // 
+            this.picFacturar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picFacturar.BackgroundImage")));
+            this.picFacturar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picFacturar.Image = ((System.Drawing.Image)(resources.GetObject("picFacturar.Image")));
+            this.picFacturar.Location = new System.Drawing.Point(102, 163);
+            this.picFacturar.Name = "picFacturar";
+            this.picFacturar.Size = new System.Drawing.Size(136, 141);
+            this.picFacturar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picFacturar.TabIndex = 8;
+            this.picFacturar.TabStop = false;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.NullValue = null;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle21;
+            this.dataGridViewImageColumn1.HeaderText = "Eliminar";
+            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Facturar
             // 
@@ -1357,22 +1358,22 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Facturar_KeyDown);
             this.grbComandos.ResumeLayout(false);
             this.grbComandos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picFacturar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDescripcion_Producto)).EndInit();
             this.panel_titulo.ResumeLayout(false);
             this.panel_titulo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_close)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_slide)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picguardar)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.paneltaller.ResumeLayout(false);
             this.paneltaller.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvtaller)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.piclogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picguardar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_close)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_slide)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFacturar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
